@@ -6,37 +6,13 @@ import aiLegalBg from '../assets/AI_analyzing_legal.jpg';
 import { 
   ArrowRight, 
   Clock, 
-  Calendar, 
-  Tag, 
   BookOpen, 
   Newspaper, 
-  ShieldCheck, 
-  ExternalLink,
-  ChevronRight,
   Search,
   X
 } from 'lucide-react';
-import { insights } from '../data/homepageData';
 
 const newsAndBlogsData = [
-  {
-    id: 'aba-opinion-512',
-    category: 'Legal AI Governance',
-    badge: 'Research Paper',
-    title: 'Operationalizing ABA Formal Opinion 512 in Insurance Defense Litigation',
-    subtitle: 'Why generative legal output requires deterministic citation grounding and mandatory attorney approval gates.',
-    date: 'October 28, 2026',
-    readTime: '6 min read',
-    author: 'Trinity AI Legal Engineering & Compliance Group',
-    featured: true,
-    excerpt: 'ABA Formal Opinion 512 and Florida Bar Opinion 24-1 establish clear mandates for generative AI in legal practice: attorneys must understand the underlying technology, verify accuracy, prevent disclosure of confidential client data, and maintain independent judgment. This paper details how Trinity AI Boston embeds these ethical obligations directly into the Cosmos execution pipeline.',
-    content: [
-      'As generative AI transitions from novelty to an everyday enterprise utility, state bar associations and regulatory bodies have accelerated oversight of algorithmic legal work product. ABA Formal Opinion 512, published in 2024, set forth landmark directives requiring competent legal representation, informed consent, and rigorous supervision over artificial intelligence tools.',
-      'In insurance defense litigation—where attorneys submit verified pleadings under penalty of perjury and carrier panel guidelines impose stringent audit checks—standard probabilistic AI models are categorically unsuitable. A hallucinated precedent or ungrounded citation can result in judicial sanctions, carrier non-payment, and disciplinary proceedings.',
-      'Trinity AI Boston solves this through single-tenant deterministic pipelines. Rather than asking an open-ended large language model to draft pleadings from memory, the Cosmos platform operates strictly on the verified case record. Every generated paragraph is mapped to primary authority with precise pinpoint citations to pages, lines, and exhibits.',
-      'Furthermore, our Attorney-in-the-Loop architecture ensures that no work product is filed, published, or transmitted without affirmative human review and sign-off, satisfying Florida Bar Opinion 24-1 and Rule 1.1 requirements.'
-    ]
-  },
   {
     id: 'soc2-type1-attestation',
     category: 'Company News',
@@ -140,8 +116,6 @@ export default function NewsBlogsPage({ onNavigate, onRequestDemo }) {
     return matchesCategory && matchesSearch;
   });
 
-  const featuredArticle = newsAndBlogsData.find((a) => a.featured) || newsAndBlogsData[0];
-
   return (
     <div className="min-h-screen bg-trinity-canvas text-trinity-ink flex flex-col font-sans selection:bg-trinity-blue selection:text-white">
       <Header
@@ -229,77 +203,6 @@ export default function NewsBlogsPage({ onNavigate, onRequestDemo }) {
         <section className="py-16 lg:py-24 bg-white border-b border-trinity-border">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             
-            {/* Featured Article Hero Card */}
-            {selectedCategory === 'All' && !searchQuery && featuredArticle && (
-              <div className="rounded-3xl bg-gradient-to-br from-[#07101d] to-[#0d1d36] text-white p-8 sm:p-12 border border-[#1b2f4f] shadow-2xl relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-trinity-blue/10 rounded-full blur-3xl pointer-events-none" />
-                
-                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                  <div className="lg:col-span-8 space-y-5">
-                    <div className="flex flex-wrap items-center gap-3 text-xs">
-                      <span className="px-3 py-1 rounded-full bg-trinity-blue text-white font-semibold">
-                        Featured Research
-                      </span>
-                      <span className="font-mono text-slate-300 flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5 text-trinity-lightBlue" />
-                        {featuredArticle.date}
-                      </span>
-                      <span className="font-mono text-slate-300 flex items-center gap-1.5">
-                        <Clock className="w-3.5 h-3.5 text-trinity-lightBlue" />
-                        {featuredArticle.readTime}
-                      </span>
-                    </div>
-
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display tracking-tight text-white group-hover:text-trinity-lightBlue transition-colors">
-                      {featuredArticle.title}
-                    </h2>
-
-                    <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
-                      {featuredArticle.excerpt}
-                    </p>
-
-                    <div className="pt-2 flex items-center gap-4">
-                      <button
-                        type="button"
-                        onClick={() => setActiveArticle(featuredArticle)}
-                        className="btn-primary inline-flex items-center gap-2 bg-trinity-blue hover:bg-trinity-electric text-white px-6 py-3 rounded-xl text-sm font-semibold cursor-pointer shadow-lg shadow-blue-950/40"
-                      >
-                        <span>Read Full Article</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => onRequestDemo && onRequestDemo(featuredArticle.title)}
-                        className="text-sm font-semibold text-slate-300 hover:text-white px-4 py-3 cursor-pointer"
-                      >
-                        Request Legal Briefing →
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="lg:col-span-4 bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm space-y-4">
-                    <div className="text-xs font-mono uppercase tracking-wider text-trinity-lightBlue">
-                      Governance Highlights
-                    </div>
-                    <ul className="space-y-3 text-xs text-slate-200">
-                      <li className="flex items-start gap-2">
-                        <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                        <span>Compliance with ABA Formal Opinion 512 & Florida Bar 24-1</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                        <span>Zero open-ended generation; pinpoint record citation grounding</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                        <span>Single-tenant architecture with zero client data retraining</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            )}
-
             {/* Filter and Search Bar */}
             <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 pt-4 border-b border-trinity-border pb-6">
               {/* Category Pills */}

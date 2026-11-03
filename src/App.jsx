@@ -18,7 +18,7 @@ function readRoute() {
   pathname = pathname.replace(/^\/trinity-site/, '').replace(/^\//, '');
 
   if (pageParam === 'about' || hash === '#about' || hash === '#about-us' || pathname === 'about') return { page: 'about' };
-  if (pageParam === 'team' || hash === '#our-team' || pathname === 'team') return { page: 'team' };
+  if (pageParam === 'team' || hash === '#our-team' || hash === '#team' || hash === '#leadership-team' || hash === '#board-of-directors' || pathname === 'team') return { page: 'team' };
   if (pageParam === 'news' || pageParam === 'blogs' || hash === '#news' || hash === '#blogs' || hash === '#news-blogs' || pathname === 'news') return { page: 'news' };
   if (pageParam === 'careers' || hash === '#careers' || pathname === 'careers') return { page: 'careers' };
   if (pageParam === 'contact' || hash === '#contact' || hash === '#contact-us' || pathname === 'contact') return { page: 'contact' };
@@ -33,7 +33,17 @@ export default function App() {
     const handlePopState = () => {
       const route = readRoute();
       setCurrentPage(route.page);
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        setTimeout(() => {
+          const el = document.getElementById(hash);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 120);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -44,7 +54,8 @@ export default function App() {
     };
   }, []);
 
-  const handleNavigate = (page) => {
+  const handleNavigate = (page, options) => {
+    const sectionId = typeof options === 'string' ? options : options?.sectionId;
     setCurrentPage(page);
     if (typeof window !== 'undefined') {
       const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
@@ -54,10 +65,26 @@ export default function App() {
       url.searchParams.delete('page');
       url.searchParams.delete('group');
       url.searchParams.delete('v');
-      url.hash = '';
+      if (sectionId) {
+        url.hash = `#${sectionId}`;
+      } else {
+        url.hash = '';
+      }
 
-      window.history.pushState({ page }, '', url);
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      window.history.pushState({ page, sectionId }, '', url);
+
+      if (sectionId) {
+        setTimeout(() => {
+          const el = document.getElementById(sectionId);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+          }
+        }, 120);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
     }
   };
 

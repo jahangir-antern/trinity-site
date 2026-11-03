@@ -8,7 +8,17 @@ import { ArrowRight, Users } from 'lucide-react';
 
 export default function TeamPage({ onNavigate, onRequestDemo }) {
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 150);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
   }, []);
 
   return (

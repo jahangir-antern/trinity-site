@@ -77,63 +77,80 @@ export default function OurTeamSection({ onRequestDemo }) {
             setSelectedMember(member);
           }
         }}
-        className="group rounded-2xl bg-white border border-slate-200/90 shadow-subtle overflow-hidden flex flex-col justify-between hover:border-blue-400 hover:shadow-enterprise transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-trinity-blue/40"
+        className="group rounded-3xl bg-white border border-slate-200/90 shadow-subtle overflow-hidden flex flex-col justify-between hover:border-blue-400 hover:shadow-enterprise transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-trinity-blue/40"
       >
         <div>
-          {/* Image Portrait Box */}
-          <div className="relative w-full aspect-square bg-slate-100 overflow-hidden border-b border-slate-100">
-            <div className="w-full h-full overflow-hidden transition-transform duration-700 group-hover:scale-105">
-              <img
-                src={member.image}
-                alt={member.name}
-                style={{
-                  objectFit: member.imageFit || 'cover',
-                  objectPosition: member.imagePosition || 'center top',
-                  transform: member.imageScale ? `scale(${member.imageScale})` : undefined,
-                  transformOrigin: member.transformOrigin || 'center center',
-                }}
-                className="w-full h-full object-cover select-none"
-              />
-            </div>
-
-            {/* Floating Badges */}
-            <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
-              <span className="px-2.5 py-1 rounded-md bg-white/95 border border-slate-200 text-[10px] font-mono font-semibold uppercase tracking-wider text-trinity-blue shadow-sm backdrop-blur-md">
+          {/* Card Header with Badges & Framed Portrait */}
+          <div className="relative bg-gradient-to-b from-slate-50 via-blue-50/20 to-white pt-5 pb-5 px-4 sm:px-6 border-b border-slate-100">
+            {/* Top Badges */}
+            <div className="flex items-center justify-between gap-2 mb-4">
+              <span className="px-2.5 py-1 rounded-full bg-white/95 border border-slate-200 text-[10px] font-mono font-semibold uppercase tracking-wider text-trinity-blue shadow-sm">
                 {member.categoryBadge}
               </span>
-              <span className="px-2.5 py-0.5 rounded-md bg-slate-900/85 text-white text-[10px] font-mono font-medium shadow-sm backdrop-blur-md">
+              <span className="px-2.5 py-0.5 rounded-full bg-slate-900/85 text-white text-[10px] font-mono font-medium shadow-sm">
                 {member.experience}
               </span>
             </div>
+
+            {/* Framed Portrait */}
+            <div className="relative w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 mx-auto rounded-2xl overflow-hidden bg-slate-100 ring-4 ring-white shadow-md border border-slate-200/80 group-hover:ring-blue-100 group-hover:shadow-xl transition-all duration-300">
+              <div className="w-full h-full overflow-hidden transition-transform duration-700 group-hover:scale-105">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  style={{
+                    objectFit: member.imageFit || 'cover',
+                    objectPosition: member.imagePosition || 'center top',
+                    transform: member.imageScale ? `scale(${member.imageScale})` : undefined,
+                    transformOrigin: member.transformOrigin || 'center center',
+                  }}
+                  className="w-full h-full object-cover select-none"
+                />
+              </div>
+            </div>
           </div>
 
-          {/* Minimized Essential Data */}
-          <div className="p-5 sm:p-6 space-y-3.5">
+          {/* Member Details */}
+          <div className="p-6 space-y-4">
             {/* Name & Role */}
-            <div>
+            <div className="text-center space-y-1">
               <h3 className="text-lg sm:text-xl font-bold font-display text-trinity-ink tracking-tight group-hover:text-trinity-blue transition-colors line-clamp-1">
                 {member.name}
               </h3>
-              <p className="text-xs sm:text-[13px] text-trinity-blue font-semibold line-clamp-1 mt-0.5">
+              <p className="text-xs sm:text-[13px] text-trinity-blue font-semibold line-clamp-1">
                 {member.role}
               </p>
             </div>
 
             {/* Standout Highlight Banner */}
-            <div className="p-2.5 rounded-xl bg-blue-50/70 border border-blue-100/90 flex items-start gap-2">
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-2.5 group-hover:bg-blue-50/40 group-hover:border-blue-100/90 transition-colors">
               <Sparkles className="w-3.5 h-3.5 text-trinity-gold shrink-0 mt-0.5" />
-              <p className="text-xs text-trinity-ink font-medium leading-snug line-clamp-2">
+              <p className="text-xs text-trinity-slate font-medium leading-relaxed line-clamp-2">
                 {member.highlight}
               </p>
             </div>
+
+            {/* Key Competencies / Skills Tags */}
+            {member.skills && member.skills.length > 0 && (
+              <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1">
+                {member.skills.slice(0, 3).map((skill, idx) => (
+                  <span
+                    key={idx}
+                    className="px-2 py-0.5 rounded-md bg-slate-100/90 text-[10px] font-mono text-slate-600 border border-slate-200/60"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Sleek Action Footer: Shortened & Interactive */}
-        <div className="px-5 sm:px-6 pb-5 pt-0">
+        {/* Action Footer */}
+        <div className="px-6 pb-6 pt-0">
           <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-trinity-blue group-hover:text-trinity-deepBlue">
-            <span>View Profile & Bio</span>
-            <span className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center border border-blue-100 group-hover:bg-trinity-blue group-hover:text-white transition-all duration-300">
+            <span>View Full Profile & Bio</span>
+            <span className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center border border-blue-100 group-hover:bg-trinity-blue group-hover:text-white transition-all duration-300">
               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
             </span>
           </div>
@@ -155,7 +172,7 @@ export default function OurTeamSection({ onRequestDemo }) {
         {/* =========================================================================
             SECTION 1: LEADERSHIP TEAM
             ========================================================================= */}
-        <div className="max-w-3xl mx-auto text-center mb-12 lg:mb-16 space-y-4">
+        <div id="leadership-team" className="scroll-mt-32 max-w-3xl mx-auto text-center mb-12 lg:mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm">
             <Users className="w-4 h-4 text-trinity-deepGold shrink-0" />
             <span>LEADERSHIP TEAM</span>
@@ -170,22 +187,35 @@ export default function OurTeamSection({ onRequestDemo }) {
           </p>
         </div>
 
-        {/* Leadership Team Grid (2 columns, 2x2 aspect-square thumbnails) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {leadershipTeam.map((member) => renderMemberCard(member))}
+        {/* Multi-Row Hierarchical Leadership Layout */}
+        <div className="space-y-8 lg:space-y-10">
+          {/* Row 1: Co-Founders (Jayashankar Nanjundaswamy & Ganesh Ramamoorthy) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+            {leadershipTeam.slice(0, 2).map((member) => renderMemberCard(member))}
+          </div>
+
+          {/* Row 2: Operations & Advisory Leadership (Chandra Mouli N., Anish Desai, Shivaji Neogi) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {leadershipTeam.slice(2, 5).map((member) => renderMemberCard(member))}
+          </div>
+
+          {/* Row 3: AI Architecture Leadership (Sharoon Saxena) */}
+          <div className="w-full max-w-md mx-auto">
+            {leadershipTeam.slice(5, 6).map((member) => renderMemberCard(member))}
+          </div>
         </div>
 
         {/* =========================================================================
-            SECTION 2: ADVISORY TEAM
+            SECTION 2: BOARD OF DIRECTORS
             ========================================================================= */}
-        <div className="max-w-3xl mx-auto text-center mt-20 lg:mt-24 mb-12 lg:mb-16 space-y-4">
+        <div id="board-of-directors" className="scroll-mt-32 max-w-3xl mx-auto text-center mt-20 lg:mt-24 mb-12 lg:mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm">
             <Sparkles className="w-4 h-4 text-trinity-deepGold shrink-0" />
-            <span>ADVISORY TEAM</span>
+            <span>BOARD OF DIRECTORS</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-trinity-ink leading-tight">
-            Strategic & Board Advisory
+            Board of Directors
           </h2>
 
           <p className="text-base sm:text-lg text-trinity-slate leading-relaxed font-normal">
@@ -193,8 +223,8 @@ export default function OurTeamSection({ onRequestDemo }) {
           </p>
         </div>
 
-        {/* Advisory Team Grid (2 columns, 2x2 aspect-square thumbnails) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {/* Board of Directors Grid (Centered 2-column layout) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
           {advisoryTeam.map((member) => renderMemberCard(member))}
         </div>
 

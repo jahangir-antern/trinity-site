@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FinalCTA from '../components/FinalCTA';
 import careersHeroBg from '../assets/hero-intelligence.jpg';
+import initialJobsData from '../data/jobsData.json';
 import { 
   Briefcase, 
   MapPin, 
@@ -25,153 +26,6 @@ import {
   ChevronRight,
   Building2
 } from 'lucide-react';
-
-const mockJobsData = [
-  {
-    id: 'lead-ai-architect',
-    title: 'Lead AI / ML Systems Architect',
-    department: 'AI Research & Architecture',
-    location: 'Andover, MA (Hybrid) / Greater Boston',
-    type: 'Full-time',
-    experience: '8+ Years',
-    badge: 'Patented Gating Architecture',
-    highlight: 'Design deterministic reasoning engines for high-consequence litigation dockets',
-    overview: 'We are seeking a Lead AI/ML Systems Architect to head the design and evolution of our Polaris™ and Cortex™ reasoning engines. You will lead research on multimodal document reasoning, hallucination elimination, and verifiable citation graphs where every output is scrutinized by federal judges and carrier auditors.',
-    responsibilities: [
-      'Architect and train proprietary, single-tenant neural reasoning pipelines for complex multi-hundred page litigation records.',
-      'Lead the algorithmic implementation of deterministic citation grounding (zero probabilistic hallucinations).',
-      'Collaborate with legal engineering specialists to convert state bar opinions (ABA 512, FL Bar 24-1) into formal software validation gates.',
-      'Author USPTO patent applications covering novel high-consequence decision architectures.'
-    ],
-    requirements: [
-      'M.S. or Ph.D. in Computer Science, Machine Learning, or related quantitative discipline.',
-      '8+ years building and deploying production-grade AI systems, with demonstrable experience in NLP, RAG, and document intelligence.',
-      'Deep fluency with PyTorch, CUDA, Python, modern vector databases, and distributed inference.',
-      'Strong publication or patent record in applied AI, retrieval architectures, or verifiable decision systems.'
-    ],
-    skills: ['PyTorch', 'Deterministic Retrieval', 'Multimodal LLMs', 'Vector Indexes', 'USPTO Patents']
-  },
-  {
-    id: 'senior-fullstack-systems',
-    title: 'Senior Full-Stack Distributed Systems Engineer',
-    department: 'Engineering',
-    location: 'Andover, MA / Remote (US)',
-    type: 'Full-time',
-    experience: '5+ Years',
-    badge: 'Single-Tenant Cloud',
-    highlight: 'Build high-performance legal workspace interfaces and ultra-secure VPC microservices',
-    overview: 'As a Senior Full-Stack Engineer, you will design, build, and optimize the enterprise web platforms that power Trinity AI Boston. You will architect intuitive attorney review interfaces and back them with sub-second, single-tenant cloud microservices.',
-    responsibilities: [
-      'Develop modern, responsive web applications in React 19, Tailwind CSS, and TypeScript for Am Law 200 litigation defense teams.',
-      'Engineer low-latency document streaming and annotation engines capable of rendering 10,000-page evidence dockets in real time.',
-      'Build isolated single-tenant backend APIs with bank-grade AES-256 and TLS 1.3 cryptographic enforcement.',
-      'Partner closely with product design and legal defense teams to deliver seamless Attorney-in-the-Loop workflows.'
-    ],
-    requirements: [
-      '5+ years of software engineering experience across frontend and backend distributed systems.',
-      'Excellence in TypeScript, React, Node.js, and modern CSS/Tailwind.',
-      'Experience with PostgreSQL, Redis, Docker, and AWS/GCP cloud environments.',
-      'Track record of building secure, high-compliance B2B enterprise software (SOC 2, HIPAA, or FinTech).'
-    ],
-    skills: ['React 19', 'TypeScript', 'Node.js', 'PostgreSQL', 'Single-Tenant VPC', 'Tailwind CSS']
-  },
-  {
-    id: 'senior-legal-engineer',
-    title: 'Senior Legal Engineer / Defense Litigation Specialist',
-    department: 'Legal Tech & Compliance',
-    location: 'Greater Boston, MA / Remote',
-    type: 'Full-time',
-    experience: '4+ Years (J.D. or Legal Ops)',
-    badge: 'Legal AI Ethics & Rules',
-    highlight: 'Bridge statutory court rules and carrier guidelines directly into software logic',
-    overview: 'Trinity AI Boston is built for matters where the work is signed by an attorney, filed with a court, and billed to a carrier that audits it. We are looking for a Senior Legal Engineer who understands Florida, Texas, California, and New York insurance defense litigation to translate statutory clocks and carrier guidelines into executable software gates.',
-    responsibilities: [
-      'Encode insurance carrier litigation guidelines (LMG) and statutory clocks (First-Party Property, Construction Defect) into deterministic rule engines.',
-      'Audit AI work products against ABA Formal Opinion 512 and state ethics rules to ensure verifiable human attorney oversight.',
-      'Conduct rigorous legal red-teaming on generated evaluations, chronologies, and cross-examination outlines.',
-      'Interface directly with Am Law 200 trial teams and carrier claims executives to refine practice line capabilities.'
-    ],
-    requirements: [
-      'J.D. from an accredited law school or 5+ years in high-stakes insurance defense litigation operations.',
-      'Familiarity with first-party property, commercial liability, or construction defect litigation lifecycle.',
-      'Passion for artificial intelligence, legal tech automation, and ethical compliance standards.',
-      'Excellent written communication, analytical rigor, and cross-functional leadership skills.'
-    ],
-    skills: ['Insurance Defense', 'ABA Formal Opinion 512', 'Carrier Guidelines', 'Litigation Dockets', 'Statutory Rules']
-  },
-  {
-    id: 'staff-cloud-security',
-    title: 'Staff Platform & Cloud Security Architect',
-    department: 'Engineering',
-    location: 'Andover, MA / Hybrid',
-    type: 'Full-time',
-    experience: '7+ Years',
-    badge: 'Enterprise Security',
-    highlight: 'Architect bank-grade isolation boundaries and zero cross-client data leakage protocols',
-    overview: 'Join as our Staff Platform & Security Architect to ensure our single-tenant infrastructure sets the gold standard in legal data sovereignty. You will maintain our SOC 2 Type 1 and Type 2 posture and build dedicated VPC boundaries for enterprise carrier partners.',
-    responsibilities: [
-      'Architect isolated single-tenant Kubernetes and serverless deployments across AWS and GCP.',
-      'Implement customer-managed encryption keys (CMEK), automated penetration testing, and real-time audit logging.',
-      'Oversee third-party SOC 2 audits, carrier vendor risk questionnaires, and ISO 27001 assessments.',
-      'Build zero-trust identity and access management (IAM) systems incorporating strict role-based controls.'
-    ],
-    requirements: [
-      '7+ years in enterprise cloud security, DevOps, or infrastructure engineering.',
-      'Deep expertise in AWS/GCP security architecture, Terraform/IaC, and Kubernetes isolation.',
-      'Proven leadership executing SOC 2 Type 2 attestations and enterprise client security audits.',
-      'Strong grasp of cryptography, zero-knowledge proofs, or confidential computing is a strong plus.'
-    ],
-    skills: ['Cloud Security', 'SOC 2 Type 2', 'Single-Tenant VPC', 'Terraform', 'Kubernetes', 'AES-256']
-  },
-  {
-    id: 'ai-data-retrieval-engineer',
-    title: 'Senior AI Evidence Retrieval & Data Engineer',
-    department: 'Engineering',
-    location: 'Bangalore, India (Development Center)',
-    type: 'Full-time',
-    experience: '5+ Years',
-    badge: 'Evidence Ingestion',
-    highlight: 'Build high-throughput OCR and cryptographic fact-linking pipelines',
-    overview: 'Located at our Bangalore Engineering Center, you will engineer the data ingestion and OCR extraction engines that digest millions of pages of unstructured litigation dockets, medical bills, and forensic photographs.',
-    responsibilities: [
-      'Develop scalable, high-throughput document ingestion pipelines processing scanned PDFs, deposition transcripts, and forensic photos.',
-      'Implement layout-aware multimodal OCR models with high accuracy on low-resolution and handwritten documents.',
-      'Build cryptographic provenance indexers that bind every extracted fact to source page coordinates.',
-      'Optimize vector indexing and distributed search for sub-second retrieval across multi-gigabyte litigation matters.'
-    ],
-    requirements: [
-      'B.Tech or M.Tech in Computer Science or related engineering field.',
-      '5+ years building scalable data pipelines and document processing systems.',
-      'Experience with Python, Rust, Apache Spark/Flink, and modern vector databases (Milvus, Pinecone, Qdrant).',
-      'Strong understanding of OCR engines, multimodal models, and distributed systems.'
-    ],
-    skills: ['Python', 'Multimodal OCR', 'Document Ingestion', 'Vector Search', 'Cryptographic Hashing']
-  },
-  {
-    id: 'director-carrier-solutions',
-    title: 'Director of Enterprise Carrier Solutions',
-    department: 'Legal Tech & Compliance',
-    location: 'Greater Boston, MA / Hybrid',
-    type: 'Full-time',
-    experience: '8+ Years',
-    badge: 'Enterprise Growth',
-    highlight: 'Deploy and scale Cosmos across tier-1 insurance carriers and panel law firms',
-    overview: 'As Director of Enterprise Carrier Solutions, you will partner with insurance carrier leadership and Am Law 200 panel defense firms to pilot, implement, and expand the Cosmos Platform across commercial litigation dockets.',
-    responsibilities: [
-      'Lead strategic enterprise customer engagements from discovery briefing through pilot deployment and multi-office rollout.',
-      'Translate carrier claims workflow requirements into actionable product features for our engineering team.',
-      'Establish quantifiable ROI metrics (cycle time reduction, compliance defense fee savings, indemnity accuracy).',
-      'Represent Trinity AI Boston at major insurance defense conferences and executive legal symposiums.'
-    ],
-    requirements: [
-      '8+ years in enterprise legal technology, claims executive consulting, or insurance defense software solutions.',
-      'Proven track record managing six-to-seven figure enterprise software accounts.',
-      'Deep network and credibility with insurance claims executives, risk officers, and defense law firm leaders.',
-      'Uncompromising integrity, consultative problem-solving mindset, and executive presentation mastery.'
-    ],
-    skills: ['Enterprise Sales', 'Insurance Defense', 'Carrier Claims', 'Am Law 200', 'Executive Briefings']
-  }
-];
 
 const perksAndBenefits = [
   {
@@ -207,6 +61,7 @@ const perksAndBenefits = [
 ];
 
 export default function CareersPage({ onNavigate, onRequestDemo }) {
+  const [jobsList, setJobsList] = useState(initialJobsData);
   const [selectedDepartment, setSelectedDepartment] = useState('All');
   const [activeJobModal, setActiveJobModal] = useState(null);
   const [applySuccess, setApplySuccess] = useState(false);
@@ -221,13 +76,35 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
+
+    // Dynamic runtime fetch so admins can add/update public/jobsData.json without code recompilation
+    const loadLiveJobs = async () => {
+      try {
+        const basePath = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+        const res = await fetch(`${basePath}/jobsData.json?t=${Date.now()}`);
+        if (res.ok) {
+          const liveData = await res.json();
+          if (Array.isArray(liveData) && liveData.length > 0) {
+            setJobsList(liveData);
+          }
+        }
+      } catch (err) {
+        // Silently falls back to bundled initialJobsData
+      }
+    };
+
+    loadLiveJobs();
   }, []);
 
-  const departments = ['All', 'Engineering', 'Legal Tech & Compliance', 'AI Research & Architecture'];
+  // Dynamically compute department filter categories from whatever is in the JSON file
+  const departments = [
+    'All',
+    ...Array.from(new Set(jobsList.map((job) => job.department).filter(Boolean)))
+  ];
 
   const filteredJobs = selectedDepartment === 'All'
-    ? mockJobsData
-    : mockJobsData.filter((job) => job.department === selectedDepartment);
+    ? jobsList
+    : jobsList.filter((job) => job.department === selectedDepartment);
 
   const handleOpenJob = (job) => {
     setActiveJobModal(job);
@@ -371,7 +248,7 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
                   href="#open-roles"
                   className="btn-primary py-3.5 px-8 text-base font-semibold group flex items-center justify-center gap-2 bg-trinity-blue hover:bg-trinity-deepBlue shadow-xl shadow-blue-950/60 cursor-pointer"
                 >
-                  <span>Explore Open Positions ({mockJobsData.length})</span>
+                  <span>Explore Open Positions ({jobsList.length})</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
@@ -385,63 +262,6 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
           </div>
         </section>
 
-        {/* =========================================================================
-            SECTION 1: OUR CULTURE & PRINCIPLES
-            ========================================================================= */}
-        <section className="py-20 lg:py-28 bg-white border-b border-trinity-border relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
-                <span>Why Trinity AI Boston</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-trinity-ink tracking-tight">
-                Engineering for the Consequential World
-              </h2>
-              <p className="text-base sm:text-lg text-trinity-slate leading-relaxed font-normal">
-                We do not build thin wrappers around probabilistic chatbots. We solve hard engineering challenges at the intersection of law, semiconductor physics, and deterministic AI.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-8 rounded-2xl bg-trinity-canvas border border-slate-200/90 shadow-subtle space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-100/70 text-trinity-blue flex items-center justify-center">
-                  <ShieldCheck className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold font-display text-trinity-ink">
-                  Deterministic Precision
-                </h3>
-                <p className="text-sm text-trinity-slate leading-relaxed">
-                  In litigation defense, hallucinations are catastrophic. We engineer software where every output has cryptographic proof of its source in the record, upholding Rule 1.1 ethical duties.
-                </p>
-              </div>
-
-              <div className="p-8 rounded-2xl bg-trinity-canvas border border-slate-200/90 shadow-subtle space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-amber-100/70 text-trinity-deepGold flex items-center justify-center">
-                  <Cpu className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold font-display text-trinity-ink">
-                  Semiconductor & Carrier DNA
-                </h3>
-                <p className="text-sm text-trinity-slate leading-relaxed">
-                  Our leadership team led multi-decade scaling across semiconductors, telecom networks, and Am Fam insurance defense. You learn from veterans who built critical infrastructure.
-                </p>
-              </div>
-
-              <div className="p-8 rounded-2xl bg-trinity-canvas border border-slate-200/90 shadow-subtle space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-emerald-100/70 text-emerald-600 flex items-center justify-center">
-                  <Code2 className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold font-display text-trinity-ink">
-                  High Autonomy & Direct Impact
-                </h3>
-                <p className="text-sm text-trinity-slate leading-relaxed">
-                  You work in nimble, high-density teams with direct ownership over production architectures. The code you deploy directly protects defense attorneys in court proceedings.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* =========================================================================
             SECTION 2: OPEN POSITIONS LISTINGS (INTERACTIVE)
@@ -681,10 +501,10 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
                   </span>
                 </div>
                 <h4 className="text-xl font-bold font-display text-white">
-                  Bangalore, Karnataka, India
+                  Bengaluru, Karnataka, India
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Advanced engineering center leading high-throughput OCR pipelines, vector retrieval indexing, and distributed microservice infrastructure.
+                  301 J, Brigade Twin Tower, Yashwantpur, Bengaluru. Advanced engineering center leading high-throughput OCR pipelines, vector retrieval indexing, and distributed microservice infrastructure.
                 </p>
                 <div className="pt-2 text-xs font-mono text-slate-400">
                   Full-Stack • AI Retrieval • Systems

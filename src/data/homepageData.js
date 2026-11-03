@@ -230,8 +230,8 @@ export const companyLocations = {
   },
   engineeringCenter: {
     title: "Global Capability Center",
-    address: "Level 4, Prestige Tech Park, Outer Ring Road, Bangalore 560103",
-    region: "Bangalore, Karnataka, India"
+    address: "301 J, Brigade Twin Tower, Yashwantpur, Bengaluru",
+    region: "Bengaluru, Karnataka, India"
   }
 };
 
