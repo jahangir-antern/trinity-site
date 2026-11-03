@@ -43,7 +43,7 @@ export default function VersionOne({ onNavigate, onRequestDemo }) {
         <TrustSection />
 
         {/* SECTION 09 — DARK FINAL CTA */}
-        <FinalCTA onRequestDemo={onRequestDemo} />
+        <FinalCTA onRequestDemo={onRequestDemo} onNavigate={onNavigate} />
       </main>
 
       {/* Enterprise Footer */}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Mail } from 'lucide-react';
 
-export default function FinalCTA({ onRequestDemo }) {
+export default function FinalCTA({ onRequestDemo, onNavigate }) {
   return (
     <section className="py-24 lg:py-32 bg-trinity-hero text-white relative bg-grid-dark overflow-hidden">
       
@@ -10,7 +10,8 @@ export default function FinalCTA({ onRequestDemo }) {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8">
         
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/80 border border-blue-800/40 text-xs font-semibold tracking-wider uppercase text-trinity-lightBlue">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-950/40 border border-trinity-gold/50 text-trinity-brightGold backdrop-blur-md shadow-sm">
+          <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
           <span>Get Started</span>
         </div>
 
@@ -33,7 +34,7 @@ export default function FinalCTA({ onRequestDemo }) {
           </button>
 
           <button
-            onClick={() => onRequestDemo("Executive Contact")}
+            onClick={() => onNavigate ? onNavigate('contact') : onRequestDemo("Executive Contact")}
             className="btn-secondary-dark py-4 px-8 text-base font-medium flex items-center justify-center gap-2 hover:bg-white/10 w-full sm:w-auto cursor-pointer"
           >
             <Mail className="w-4 h-4 text-slate-400" />

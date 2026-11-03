@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { 
-  ArrowRight, 
-  ChevronRight, 
+import {
+  ArrowRight,
+  ChevronRight,
   ChevronLeft,
-  CheckCircle2, 
-  Lock, 
-  Zap, 
-  FileCheck, 
-  ShieldCheck, 
-  Layers, 
-  TrendingUp, 
+  CheckCircle2,
+  Lock,
+  Zap,
+  FileCheck,
+  ShieldCheck,
+  Layers,
+  TrendingUp,
   Shield,
   Activity
 } from 'lucide-react';
@@ -205,7 +205,7 @@ export default function Hero({ onRequestDemo }) {
   const currentSlide = slides[activeSlide];
 
   return (
-    <section 
+    <section
       role="region"
       aria-roledescription="carousel"
       aria-label="Trinity AI Boston - Featured AI Perspectives"
@@ -213,14 +213,14 @@ export default function Hero({ onRequestDemo }) {
       onTouchEnd={handleTouchEnd}
       className="relative w-full min-h-screen min-h-[100dvh] bg-trinity-hero text-white overflow-hidden border-b border-[#182744] flex flex-col justify-between select-none"
     >
-      
+
       {/* =========================================================================
           FIXED PARALLAX BACKGROUND
           Keeps each slide's background fixed to the viewport while content scrolls over it
           ========================================================================= */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
-        style={{ 
+        style={{
           clipPath: 'inset(0)',
           WebkitClipPath: 'inset(0)'
         }}
@@ -232,9 +232,9 @@ export default function Hero({ onRequestDemo }) {
             style={{ objectPosition: currentSlide.backgroundPosition || '82% center' }}
             className="w-full h-full object-cover opacity-95 select-none"
           />
-          
+
           {/* Cinematic Multi-Stop Vanishing Gradient (High contrast on left, clear view of executive on right) */}
-          <div 
+          <div
             className="absolute inset-0 pointer-events-none z-[1]"
             style={{
               background: 'linear-gradient(to right, #050B16 0%, #050B16 32%, rgba(5, 11, 22, 0.94) 46%, rgba(5, 11, 22, 0.60) 62%, rgba(5, 11, 22, 0.15) 78%, rgba(5, 11, 22, 0) 95%)'
@@ -251,9 +251,9 @@ export default function Hero({ onRequestDemo }) {
           <div className="absolute inset-0 bg-grid-dark opacity-35 pointer-events-none z-[1]" />
 
           {/* Dynamic Ambient Radial Sapphire Glow that pulses into life on slide change */}
-          <div 
+          <div
             key={`radial-${activeSlide}`}
-            className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[400px] bg-trinity-blue/20 rounded-full blur-[150px] pointer-events-none z-[1] animate-radial-shift" 
+            className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[400px] bg-trinity-blue/20 rounded-full blur-[150px] pointer-events-none z-[1] animate-radial-shift"
           />
         </div>
       </div>
@@ -263,10 +263,10 @@ export default function Hero({ onRequestDemo }) {
           Directional slide gliding, staggered Apple-style reveals & lens flare sweep
           ========================================================================= */}
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-14 relative z-10 w-full pt-28 sm:pt-32 pb-8 md:pb-12 my-auto flex-grow flex items-center">
-        
+
         {/* Responsive Content Frame */}
         <div className="w-full relative min-h-[420px] sm:min-h-[440px] lg:min-h-[420px] flex items-center overflow-hidden">
-          
+
           {slides.map((slide, index) => {
             const isActive = index === activeSlide;
             const PrimaryIcon = slide.primaryCta.icon || ArrowRight;
@@ -280,15 +280,14 @@ export default function Hero({ onRequestDemo }) {
                 role="group"
                 aria-roledescription="slide"
                 aria-label={`Slide ${index + 1} of ${slides.length}: ${slide.tabTitle}`}
-                className={`w-full flex items-center will-change-transform ${
-                  direction === 'next' 
-                    ? 'animate-cinematic-enter-right' 
-                    : 'animate-cinematic-enter-left'
-                }`}
+                className={`w-full flex items-center will-change-transform ${direction === 'next'
+                  ? 'animate-cinematic-enter-right'
+                  : 'animate-cinematic-enter-left'
+                  }`}
               >
                 {/* ---------------- Expanded Left Column: Narrative with Max 2-Line Title ---------------- */}
                 <div className="w-full max-w-2xl md:max-w-3xl lg:max-w-[760px] xl:max-w-[820px] space-y-5 sm:space-y-6 text-left relative">
-                  
+
                   {/* Radiant Lens Light Beam Flare Sweep across the transition */}
                   <div className="absolute -top-8 -left-16 w-[420px] h-[1px] bg-gradient-to-r from-transparent via-trinity-lightBlue to-transparent pointer-events-none animate-lens-sweep" />
 
@@ -415,10 +414,10 @@ export default function Hero({ onRequestDemo }) {
           ========================================================================= */}
       <div className="w-full relative z-20 pb-6 pt-3 px-4 sm:px-6 lg:px-8 border-t border-white/10 bg-[#050B16]/70 backdrop-blur-md">
         <div className="max-w-7xl mx-auto flex flex-col gap-3">
-          
+
           {/* Header Row: Slide Counter, Active Topic & Continuous Status Indicator */}
           <div className="flex items-center justify-between text-xs text-slate-400">
-            
+
             {/* Slide Index Counter & Topic */}
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1 font-mono text-xs">
@@ -435,15 +434,6 @@ export default function Hero({ onRequestDemo }) {
                 <span>Engineering Scale at Trust™</span>
               </span>
             </div>
-
-            {/* Continuous Live System Verification Indicator */}
-            <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-950/60 border border-blue-800/40 text-[10px] font-mono text-trinity-lightBlue">
-                <Activity className="w-3 h-3 text-emerald-400 animate-pulse" />
-                <span>Live Record Reasoning</span>
-              </span>
-            </div>
-
           </div>
 
           {/* Interactive Progress Tabs */}
@@ -456,11 +446,10 @@ export default function Hero({ onRequestDemo }) {
                   key={slide.id}
                   type="button"
                   onClick={() => goToSlide(index)}
-                  className={`group text-left p-3 sm:p-4 rounded-xl transition-all duration-300 relative overflow-hidden cursor-pointer border ${
-                    isActive
-                      ? 'bg-white/[0.08] border-blue-500/40 shadow-lg shadow-blue-950/40'
-                      : 'bg-white/[0.02] border-white/5 hover:bg-white/[0.05] hover:border-white/10'
-                  }`}
+                  className={`group text-left p-3 sm:p-4 rounded-xl transition-all duration-300 relative overflow-hidden cursor-pointer border ${isActive
+                    ? 'bg-white/[0.08] border-blue-500/40 shadow-lg shadow-blue-950/40'
+                    : 'bg-white/[0.02] border-white/5 hover:bg-white/[0.05] hover:border-white/10'
+                    }`}
                   aria-label={`Go to slide ${index + 1}: ${slide.tabTitle}`}
                 >
                   {/* Top Animated Progress Track */}
@@ -480,9 +469,8 @@ export default function Hero({ onRequestDemo }) {
                   </div>
 
                   <div className="flex items-center justify-between mb-1 pt-0.5">
-                    <span className={`font-mono text-[11px] sm:text-xs font-semibold tracking-wider transition-colors ${
-                      isActive ? 'text-trinity-lightBlue' : 'text-slate-400 group-hover:text-slate-300'
-                    }`}>
+                    <span className={`font-mono text-[11px] sm:text-xs font-semibold tracking-wider transition-colors ${isActive ? 'text-trinity-lightBlue' : 'text-slate-400 group-hover:text-slate-300'
+                      }`}>
                       0{index + 1}
                     </span>
                     {isActive && (
@@ -490,9 +478,8 @@ export default function Hero({ onRequestDemo }) {
                     )}
                   </div>
 
-                  <div className={`text-xs sm:text-sm font-semibold truncate transition-colors ${
-                    isActive ? 'text-white' : 'text-slate-300 group-hover:text-white'
-                  }`}>
+                  <div className={`text-xs sm:text-sm font-semibold truncate transition-colors ${isActive ? 'text-white' : 'text-slate-300 group-hover:text-white'
+                    }`}>
                     {slide.tabTitle}
                   </div>
 

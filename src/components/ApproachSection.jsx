@@ -7,9 +7,10 @@ export default function ApproachSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-20 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 text-trinity-blue border border-blue-100">
-            The Record Pipeline
+        <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-20 space-y-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
+            <span>The Record Pipeline</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-trinity-ink tracking-tight">
             From the Record to a Defensible Position.

@@ -1,12 +1,11 @@
 import jayashankarImg from '../assets/Jayashankar-1.png';
 import ganeshImg from '../assets/Ganesh-1.png';
 import chandraMouliImg from '../assets/ChandraMouli-1.png';
-import andrewImg from '../assets/Andrew-1.png';
-import anishImg from '../assets/Anish-1.jpg';
+import anishImg from '../assets/Anish-1.png';
 import shivajiImg from '../assets/Shivaji-1.png';
 import sharoonImg from '../assets/Sharoon-1.png';
 
-export const teamMembers = [
+export const leadershipTeam = [
   {
     id: 'jayashankar-nanjundaswamy',
     name: 'Jayashankar Nanjundaswamy',
@@ -28,7 +27,7 @@ export const teamMembers = [
     categoryBadge: 'Co-Founder & CTO',
     image: ganeshImg,
     imagePosition: 'center top',
-    imageFit: 'contain',
+    imageFit: 'cover',
     experience: '30+ Years',
     highlight: 'High-Impact Engineering & Applied AI Decision Systems',
     bio: 'Ganesh Ramamoorthy is a seasoned software engineering leader with 30+ years of experience driving innovation and leading high-impact engineering teams. He was Senior Vice President of Engineering at nference, overseeing alliance management with health system partners, and previously led product development at Pramana and TiVo. His career spans leadership roles at Veveo, Motorola, and Privafy, delivering scalable solutions across healthcare, telecom, media, and data security.',
@@ -47,20 +46,6 @@ export const teamMembers = [
     highlight: 'Global Delivery Scale & Greenfield Centers Across US/APAC',
     bio: 'Chandra Mouli N. is a senior operating executive with 20+ years of experience scaling enterprise workforce and delivery platforms across India, the U.S., and APAC. He has led multi-location operations, driven 3X revenue growth, managed P&Ls up to ₹15Cr+, and built greenfield delivery centers from inception to scale. His expertise in enterprise client acquisition, scalable operating models, and automation-led productivity makes him a key driver for enterprise maturity.',
     skills: ['Operations Leadership', 'Scale & Delivery', 'P&L Management', 'Global Expansion']
-  },
-  {
-    id: 'andrew-bates',
-    name: 'Andrew Bates',
-    role: 'Head of IT Infrastructure',
-    categoryBadge: 'IT Infrastructure',
-    image: andrewImg,
-    imagePosition: 'center 38%',
-    imageScale: 1.14,
-    transformOrigin: 'center 38%',
-    experience: '25+ Years',
-    highlight: 'Enterprise Networking & Automation (Ex-Verizon, MCI/WorldCom)',
-    bio: 'Andrew is an innovative technology consultant with 25+ years of experience in enterprise-scale networking and automation. He has held senior engineering roles at leading telecommunications companies including Verizon and MCI/WorldCom, working on the design and operation of large-scale networks. He holds both a B.S. and M.S. in Computer Science.',
-    skills: ['Network Architecture', 'Single-Tenant Security', 'Infrastructure Automation', 'Telecommunications']
   },
   {
     id: 'anish-desai',
@@ -105,3 +90,35 @@ export const teamMembers = [
     skills: ['Legal AI Models', 'Patent Author', 'Gated Pipelines', 'High-Consequence Systems']
   }
 ];
+
+export const advisoryTeam = [
+  {
+    id: 'advisory-jayashankar-nanjundaswamy',
+    name: 'Jayashankar Nanjundaswamy',
+    role: 'Co-Founder, President and Chief Executive Officer, Member of the Board',
+    categoryBadge: 'Strategic Advisor',
+    image: jayashankarImg,
+    imagePosition: 'center 15%',
+    imageScale: 1.04,
+    transformOrigin: 'center 15%',
+    experience: '35+ Years',
+    highlight: 'Semiconductor Industry & Scalable Technology Execution',
+    bio: 'With over 35 years of experience in the semiconductor industry, Jayashankar Nanjundaswamy is a seasoned leader known for building and guiding high-performing teams through a methodical, execution-focused approach. He brings deep expertise in translating complex technologies into scalable, market-ready solutions and advises AI companies on technology maturity, product strategy, and disciplined execution.',
+    skills: ['Executive Leadership', 'Product Strategy', 'Semiconductor Scaling', 'Board Governance']
+  },
+  {
+    id: 'advisory-ganesh-ramamoorthy',
+    name: 'Ganesh Ramamoorthy',
+    role: 'Co-Founder, Chief Technology Officer, Member of the Board',
+    categoryBadge: 'Technology Advisor',
+    image: ganeshImg,
+    imagePosition: 'center top',
+    imageFit: 'cover',
+    experience: '30+ Years',
+    highlight: 'High-Impact Engineering & Applied AI Decision Systems',
+    bio: 'Ganesh Ramamoorthy is a seasoned software engineering leader with 30+ years of experience driving innovation and leading high-impact engineering teams. He was Senior Vice President of Engineering at nference, overseeing alliance management with health system partners, and previously led product development at Pramana and TiVo. His career spans leadership roles at Veveo, Motorola, and Privafy, delivering scalable solutions across healthcare, telecom, media, and data security.',
+    skills: ['Applied AI Architecture', 'Decision Systems', 'Engineering Leadership', 'Enterprise Scale']
+  }
+];
+
+export const teamMembers = leadershipTeam;

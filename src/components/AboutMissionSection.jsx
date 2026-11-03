@@ -9,8 +9,9 @@ export default function AboutMissionSection({ onRequestDemo }) {
         
         {/* Section Header */}
         <div className="space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 text-trinity-blue border border-blue-100">
-            About Trinity AI Boston
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
+            <span>About Trinity AI Boston</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-trinity-ink tracking-tight">
@@ -30,10 +31,11 @@ export default function AboutMissionSection({ onRequestDemo }) {
 
         {/* Leadership Section */}
         <div className="space-y-6 pt-4">
-          <div className="text-center space-y-1">
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-trinity-blue">
-              Executive Leadership
-            </span>
+          <div className="text-center space-y-2">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
+              <span>Executive Leadership</span>
+            </div>
             <h3 className="text-2xl font-bold font-display text-trinity-ink">
               Leadership & Governance
             </h3>
@@ -66,11 +68,11 @@ export default function AboutMissionSection({ onRequestDemo }) {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-xs font-semibold text-trinity-slate">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-trinity-blue shrink-0" />
-              <span>Headquarters: {companyLocations.headquarters.address} ({companyLocations.headquarters.region})</span>
+              <span>Corporate Head Office: {companyLocations.headquarters.address}</span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-trinity-gold shrink-0" />
-              <span>{companyLocations.engineeringCenter.region}: {companyLocations.engineeringCenter.address}</span>
+              <span>Global Capability Center: {companyLocations.engineeringCenter.address}</span>
             </div>
           </div>
         </div>

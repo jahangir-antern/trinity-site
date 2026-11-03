@@ -15,8 +15,9 @@ export default function DifferentiationSection() {
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-20 space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-950/80 border border-blue-800/40 text-trinity-lightBlue">
-            The Trinity AI Boston Difference
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-950/40 border border-trinity-gold/50 text-trinity-brightGold backdrop-blur-md shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
+            <span>The Trinity AI Boston Difference</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-white tracking-tight">
             Built Underneath the Work.

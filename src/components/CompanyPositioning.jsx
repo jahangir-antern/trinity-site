@@ -8,8 +8,9 @@ export default function CompanyPositioning() {
         
         {/* Core Philosophical Opening */}
         <div className="text-center space-y-5 max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 text-trinity-blue border border-blue-100">
-            The Belief We Built On
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
+            <span>The Belief We Built On</span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-trinity-ink tracking-tight leading-tight">
@@ -32,7 +33,8 @@ export default function CompanyPositioning() {
                 Trinity AI Boston, Inc.
               </h3>
             </div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-900 text-white text-xs font-semibold tracking-wide">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-900 text-white text-xs sm:text-[13px] font-bold tracking-wide shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-trinity-electric shrink-0" />
               <span>Engineering Scale at Trust™</span>
             </div>
           </div>
@@ -52,10 +54,11 @@ export default function CompanyPositioning() {
 
         {/* Who We Build For */}
         <div className="space-y-6">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-trinity-blue">
-              Market Clarity
-            </span>
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
+              <span>Market Clarity</span>
+            </div>
             <h3 className="text-2xl sm:text-3xl font-bold font-display text-trinity-ink">
               Who We Build For
             </h3>

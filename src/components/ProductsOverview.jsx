@@ -28,8 +28,9 @@ export default function ProductsOverview({ onRequestDemo }) {
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 text-trinity-blue border border-blue-100">
-            The Cosmos Platform
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
+            <span>The Cosmos Platform</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-trinity-ink tracking-tight">
             One Engine. Five Practice Lines.
@@ -40,19 +41,19 @@ export default function ProductsOverview({ onRequestDemo }) {
         </div>
 
         {/* Practice Lines Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 mb-16">
           {products.map((item, idx) => {
             const Icon = practiceIcons[item.id] || Home;
-            const isFlagship = idx < 2;
+            const columnClass = idx === 3
+              ? 'md:col-span-1 lg:col-span-2 lg:col-start-2'
+              : idx === 4
+                ? 'md:col-span-2 md:max-w-md md:mx-auto md:w-full lg:max-w-none lg:col-span-2 lg:col-start-4'
+                : 'md:col-span-1 lg:col-span-2';
 
             return (
               <div 
                 key={item.id}
-                className={`rounded-2xl border p-7 sm:p-8 flex flex-col justify-between transition-all duration-200 ${
-                  isFlagship 
-                    ? 'bg-trinity-canvas border-blue-200 shadow-md hover:border-blue-400 hover:shadow-enterprise' 
-                    : 'bg-white border-trinity-border shadow-subtle hover:border-slate-300 hover:shadow-md'
-                }`}
+                className={`bg-trinity-canvas rounded-2xl border border-blue-200 shadow-md hover:border-blue-400 hover:shadow-enterprise p-7 sm:p-8 flex flex-col justify-between transition-all duration-200 ${columnClass}`}
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -101,9 +102,10 @@ export default function ProductsOverview({ onRequestDemo }) {
         {/* How It Reads The Record: Three Engines Callout */}
         <div className="p-8 sm:p-10 rounded-2xl bg-[#071120] text-white border border-[#1b2b48] relative overflow-hidden">
           <div className="max-w-3xl mb-8 space-y-2">
-            <span className="text-xs font-mono uppercase tracking-wider text-trinity-lightBlue font-semibold">
-              Proprietary Architecture
-            </span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-950/40 border border-trinity-gold/50 text-trinity-brightGold backdrop-blur-md shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
+              <span>Proprietary Architecture</span>
+            </div>
             <h3 className="text-2xl sm:text-3xl font-bold font-display text-white">
               How It Reads the Record
             </h3>

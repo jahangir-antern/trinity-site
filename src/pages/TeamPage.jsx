@@ -70,11 +70,11 @@ export default function TeamPage({ onNavigate, onRequestDemo }) {
             </div>
 
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/80 border border-blue-800/50 text-xs font-semibold tracking-wider uppercase text-trinity-lightBlue backdrop-blur-md">
-                <span className="w-2 h-2 rounded-full bg-trinity-electric animate-pulse shrink-0" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-950/40 border border-trinity-gold/50 text-xs sm:text-[13px] font-bold tracking-wider uppercase text-trinity-brightGold backdrop-blur-md shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-trinity-gold animate-pulse shrink-0" />
                 <span>Our Team</span>
-                <span className="text-slate-600">•</span>
-                <span className="text-slate-300 font-normal">Leadership & Advisory</span>
+                <span className="text-amber-500/60">•</span>
+                <span className="text-amber-200/90 font-medium normal-case">Leadership & Advisory</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold font-display leading-[1.14] tracking-tight text-white max-w-2xl">
@@ -110,7 +110,7 @@ export default function TeamPage({ onNavigate, onRequestDemo }) {
         </section>
 
         <OurTeamSection onRequestDemo={onRequestDemo} />
-        <FinalCTA onRequestDemo={onRequestDemo} />
+        <FinalCTA onRequestDemo={onRequestDemo} onNavigate={onNavigate} />
       </main>
 
       <Footer onNavigate={onNavigate} onRequestDemo={onRequestDemo} />

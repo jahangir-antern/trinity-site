@@ -11,28 +11,30 @@ import {
   MapPin,
   FileText
 } from 'lucide-react';
-import { teamMembers } from '../data/teamData';
+import { leadershipTeam, advisoryTeam } from '../data/teamData';
 
 export default function OurTeamSection({ onRequestDemo }) {
   const [selectedMember, setSelectedMember] = useState(null);
 
+  const allMembers = [...leadershipTeam, ...advisoryTeam];
+
   const currentIndex = selectedMember 
-    ? teamMembers.findIndex((m) => m.id === selectedMember.id) 
+    ? allMembers.findIndex((m) => m.id === selectedMember.id) 
     : -1;
 
   const goToPrev = () => {
     setSelectedMember((current) => {
       if (!current) return null;
-      const idx = teamMembers.findIndex((m) => m.id === current.id);
-      return idx <= 0 ? teamMembers[teamMembers.length - 1] : teamMembers[idx - 1];
+      const idx = allMembers.findIndex((m) => m.id === current.id);
+      return idx <= 0 ? allMembers[allMembers.length - 1] : allMembers[idx - 1];
     });
   };
 
   const goToNext = () => {
     setSelectedMember((current) => {
       if (!current) return null;
-      const idx = teamMembers.findIndex((m) => m.id === current.id);
-      return idx >= teamMembers.length - 1 ? teamMembers[0] : teamMembers[idx + 1];
+      const idx = allMembers.findIndex((m) => m.id === current.id);
+      return idx >= allMembers.length - 1 ? allMembers[0] : allMembers[idx + 1];
     });
   };
 
@@ -62,6 +64,85 @@ export default function OurTeamSection({ onRequestDemo }) {
     };
   }, [selectedMember]);
 
+  const renderMemberCard = (member) => {
+    return (
+      <div
+        key={member.id}
+        role="button"
+        tabIndex={0}
+        onClick={() => setSelectedMember(member)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setSelectedMember(member);
+          }
+        }}
+        className="group rounded-2xl bg-white border border-slate-200/90 shadow-subtle overflow-hidden flex flex-col justify-between hover:border-blue-400 hover:shadow-enterprise transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-trinity-blue/40"
+      >
+        <div>
+          {/* Image Portrait Box */}
+          <div className="relative w-full aspect-square bg-slate-100 overflow-hidden border-b border-slate-100">
+            <div className="w-full h-full overflow-hidden transition-transform duration-700 group-hover:scale-105">
+              <img
+                src={member.image}
+                alt={member.name}
+                style={{
+                  objectFit: member.imageFit || 'cover',
+                  objectPosition: member.imagePosition || 'center top',
+                  transform: member.imageScale ? `scale(${member.imageScale})` : undefined,
+                  transformOrigin: member.transformOrigin || 'center center',
+                }}
+                className="w-full h-full object-cover select-none"
+              />
+            </div>
+
+            {/* Floating Badges */}
+            <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
+              <span className="px-2.5 py-1 rounded-md bg-white/95 border border-slate-200 text-[10px] font-mono font-semibold uppercase tracking-wider text-trinity-blue shadow-sm backdrop-blur-md">
+                {member.categoryBadge}
+              </span>
+              <span className="px-2.5 py-0.5 rounded-md bg-slate-900/85 text-white text-[10px] font-mono font-medium shadow-sm backdrop-blur-md">
+                {member.experience}
+              </span>
+            </div>
+          </div>
+
+          {/* Minimized Essential Data */}
+          <div className="p-5 sm:p-6 space-y-3.5">
+            {/* Name & Role */}
+            <div>
+              <h3 className="text-lg sm:text-xl font-bold font-display text-trinity-ink tracking-tight group-hover:text-trinity-blue transition-colors line-clamp-1">
+                {member.name}
+              </h3>
+              <p className="text-xs sm:text-[13px] text-trinity-blue font-semibold line-clamp-1 mt-0.5">
+                {member.role}
+              </p>
+            </div>
+
+            {/* Standout Highlight Banner */}
+            <div className="p-2.5 rounded-xl bg-blue-50/70 border border-blue-100/90 flex items-start gap-2">
+              <Sparkles className="w-3.5 h-3.5 text-trinity-gold shrink-0 mt-0.5" />
+              <p className="text-xs text-trinity-ink font-medium leading-snug line-clamp-2">
+                {member.highlight}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Sleek Action Footer: Shortened & Interactive */}
+        <div className="px-5 sm:px-6 pb-5 pt-0">
+          <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-trinity-blue group-hover:text-trinity-deepBlue">
+            <span>View Profile & Bio</span>
+            <span className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center border border-blue-100 group-hover:bg-trinity-blue group-hover:text-white transition-all duration-300">
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+            </span>
+          </div>
+        </div>
+
+      </div>
+    );
+  };
+
   return (
     <section id="our-team" className="scroll-mt-28 py-24 lg:py-32 bg-trinity-canvas text-trinity-ink relative border-b border-trinity-border overflow-hidden">
       
@@ -71,11 +152,13 @@ export default function OurTeamSection({ onRequestDemo }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
+        {/* =========================================================================
+            SECTION 1: LEADERSHIP TEAM
+            ========================================================================= */}
         <div className="max-w-3xl mx-auto text-center mb-12 lg:mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-semibold tracking-wider uppercase text-trinity-blue shadow-xs">
-            <Users className="w-3.5 h-3.5 text-trinity-blue" />
-            <span>LEADERSHIP & ADVISORY TEAM</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm">
+            <Users className="w-4 h-4 text-trinity-deepGold shrink-0" />
+            <span>LEADERSHIP TEAM</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-trinity-ink leading-tight">
@@ -87,99 +170,32 @@ export default function OurTeamSection({ onRequestDemo }) {
           </p>
         </div>
 
-        {/* Compact Team Cards Grid (Light Mode) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
-          {teamMembers.map((member, index) => {
-            const allMembersColumnClass = index < 2
-              ? 'lg:col-span-3'
-              : index < 5
-                ? 'lg:col-span-2'
-                : index === 5
-                  ? 'lg:col-span-2 lg:col-start-2'
-                  : 'lg:col-span-2 lg:col-start-4';
+        {/* Leadership Team Grid (2 columns, 2x2 aspect-square thumbnails) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {leadershipTeam.map((member) => renderMemberCard(member))}
+        </div>
 
-            return (
-              <div
-                key={member.id}
-                role="button"
-                tabIndex={0}
-                onClick={() => setSelectedMember(member)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    setSelectedMember(member);
-                  }
-                }}
-                className={`group rounded-2xl bg-white border border-slate-200/90 shadow-subtle overflow-hidden flex flex-col justify-between hover:border-blue-400 hover:shadow-enterprise transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-trinity-blue/40 ${
-                  allMembersColumnClass
-                }`}
-              >
-                <div>
-                  {/* Image Portrait Box with Soft Depth Gradient */}
-                  <div className="relative w-full aspect-[4/3] bg-gradient-to-b from-slate-100 to-slate-200/60 overflow-hidden border-b border-slate-100">
-                    <div className="w-full h-full overflow-hidden transition-transform duration-700 group-hover:scale-105">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        style={{
-                          objectFit: member.imageFit || 'cover',
-                          objectPosition: member.imagePosition || 'center top',
-                          transform: member.imageScale ? `scale(${member.imageScale})` : undefined,
-                          transformOrigin: member.transformOrigin || 'center center',
-                        }}
-                        className="w-full h-full object-cover select-none"
-                      />
-                    </div>
-                    
-                    {/* Subtle Gradient Vignette */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent opacity-80 pointer-events-none" />
+        {/* =========================================================================
+            SECTION 2: ADVISORY TEAM
+            ========================================================================= */}
+        <div className="max-w-3xl mx-auto text-center mt-20 lg:mt-24 mb-12 lg:mb-16 space-y-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm">
+            <Sparkles className="w-4 h-4 text-trinity-deepGold shrink-0" />
+            <span>ADVISORY TEAM</span>
+          </div>
 
-                    {/* Floating Badges */}
-                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
-                      <span className="px-2.5 py-1 rounded-md bg-white/95 border border-slate-200 text-[10px] font-mono font-semibold uppercase tracking-wider text-trinity-blue shadow-xs backdrop-blur-md">
-                        {member.categoryBadge}
-                      </span>
-                      <span className="px-2.5 py-0.5 rounded-md bg-slate-900/85 text-white text-[10px] font-mono font-medium shadow-xs backdrop-blur-md">
-                        {member.experience}
-                      </span>
-                    </div>
-                  </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-trinity-ink leading-tight">
+            Strategic & Board Advisory
+          </h2>
 
-                  {/* Minimized Essential Data */}
-                  <div className="p-5 sm:p-6 space-y-3.5">
-                    {/* Name & Role */}
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold font-display text-trinity-ink tracking-tight group-hover:text-trinity-blue transition-colors line-clamp-1">
-                        {member.name}
-                      </h3>
-                      <p className="text-xs sm:text-[13px] text-trinity-blue font-semibold line-clamp-1 mt-0.5">
-                        {member.role}
-                      </p>
-                    </div>
+          <p className="text-base sm:text-lg text-trinity-slate leading-relaxed font-normal">
+            Strategic governance and institutional guidance steering enterprise roadmap, market positioning, and rigorous operational maturity.
+          </p>
+        </div>
 
-                    {/* Standout Highlight Banner */}
-                    <div className="p-2.5 rounded-xl bg-blue-50/70 border border-blue-100/90 flex items-start gap-2">
-                      <Sparkles className="w-3.5 h-3.5 text-trinity-gold shrink-0 mt-0.5" />
-                      <p className="text-xs text-trinity-ink font-medium leading-snug line-clamp-2">
-                        {member.highlight}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Sleek Action Footer: Shortened & Interactive */}
-                <div className="px-5 sm:px-6 pb-5 pt-0">
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-trinity-blue group-hover:text-trinity-deepBlue">
-                    <span>View Profile & Bio</span>
-                    <span className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center border border-blue-100 group-hover:bg-trinity-blue group-hover:text-white transition-all duration-300">
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-                    </span>
-                  </div>
-                </div>
-
-              </div>
-            );
-          })}
+        {/* Advisory Team Grid (2 columns, 2x2 aspect-square thumbnails) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {advisoryTeam.map((member) => renderMemberCard(member))}
         </div>
 
         {/* Board Governance Notice (Light Mode) */}
@@ -239,7 +255,7 @@ export default function OurTeamSection({ onRequestDemo }) {
                       <ChevronLeft className="w-4 h-4" />
                     </button>
                     <span className="px-2 text-[11px] font-mono text-slate-400 select-none border-x border-slate-200">
-                      {currentIndex + 1} / {teamMembers.length}
+                      {currentIndex + 1} / {allMembers.length}
                     </span>
                     <button
                       type="button"

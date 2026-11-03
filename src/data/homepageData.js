@@ -3,6 +3,7 @@ export const navLinks = [
   { name: "The Cosmos Platform", href: "#products", page: "home" },
   { name: "Technology", href: "#differentiation", page: "home" },
   { name: "Trust & Compliance", href: "#trust", page: "home" },
+  { name: "Careers", href: "#careers", page: "careers" },
   // { name: "Research & Analysis", href: "#", page: "research" },
 ];
 
@@ -223,12 +224,14 @@ export const leadership = [
 
 export const companyLocations = {
   headquarters: {
+    title: "Corporate Head Office",
     address: "2 Trinity Ct, Andover, MA 01810",
     region: "Greater Boston, Massachusetts, USA"
   },
   engineeringCenter: {
-    address: "Bangalore, India",
-    region: "Engineering & Development Centre"
+    title: "Global Capability Center",
+    address: "Level 4, Prestige Tech Park, Outer Ring Road, Bangalore 560103",
+    region: "Bangalore, Karnataka, India"
   }
 };
 

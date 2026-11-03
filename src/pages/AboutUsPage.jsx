@@ -94,11 +94,11 @@ export default function AboutUsPage({ onNavigate, onRequestDemo }) {
             {/* Main Statement */}
             <div className="max-w-3xl space-y-5">
               
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/80 border border-blue-800/50 text-xs font-semibold tracking-wider uppercase text-trinity-lightBlue backdrop-blur-md">
-                <span className="w-2 h-2 rounded-full bg-trinity-electric animate-pulse shrink-0" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-950/40 border border-trinity-gold/50 text-xs sm:text-[13px] font-bold tracking-wider uppercase text-trinity-brightGold backdrop-blur-md shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-trinity-gold animate-pulse shrink-0" />
                 <span>ABOUT TRINITY AI BOSTON</span>
-                <span className="text-slate-600">•</span>
-                <span className="text-slate-300 font-normal">Engineering Scale at Trust™</span>
+                <span className="text-amber-500/60">•</span>
+                <span className="text-amber-200/90 font-medium normal-case">Engineering Scale at Trust™</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold font-display leading-[1.14] tracking-tight text-white max-w-2xl">
@@ -165,9 +165,10 @@ export default function AboutUsPage({ onNavigate, onRequestDemo }) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
             
             <div className="max-w-3xl space-y-4">
-              <span className="text-xs font-mono font-semibold uppercase tracking-wider text-trinity-blue">
-                Commercial Shape
-              </span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
+                <span>Commercial Shape</span>
+              </div>
               <h2 className="text-3xl sm:text-4xl font-bold font-display text-trinity-ink tracking-tight">
                 The Carrier Funds the Defense.
               </h2>
@@ -224,10 +225,11 @@ export default function AboutUsPage({ onNavigate, onRequestDemo }) {
             ========================================================================= */}
         <section className="py-20 lg:py-24 bg-white border-b border-trinity-border">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-12 space-y-3">
-              <span className="text-xs font-mono font-semibold uppercase tracking-wider text-trinity-blue">
-                Corporate Footprint
-              </span>
+            <div className="max-w-3xl mb-12 space-y-4">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
+                <span>Corporate Footprint</span>
+              </div>
               <h2 className="text-3xl font-bold font-display text-trinity-ink">
                 Global Operations
               </h2>
@@ -241,7 +243,7 @@ export default function AboutUsPage({ onNavigate, onRequestDemo }) {
               <div className="p-8 rounded-2xl bg-trinity-canvas border border-trinity-border space-y-3">
                 <div className="flex items-center gap-2 text-trinity-blue font-bold text-lg font-display">
                   <MapPin className="w-5 h-5" />
-                  <span>Headquarters</span>
+                  <span>Corporate Head Office</span>
                 </div>
                 <p className="text-sm text-trinity-ink font-semibold">
                   {companyLocations.headquarters.address}
@@ -254,13 +256,13 @@ export default function AboutUsPage({ onNavigate, onRequestDemo }) {
               <div className="p-8 rounded-2xl bg-trinity-canvas border border-trinity-border space-y-3">
                 <div className="flex items-center gap-2 text-trinity-gold font-bold text-lg font-display">
                   <Building2 className="w-5 h-5" />
-                  <span>Engineering & Development Centre</span>
+                  <span>Global Capability Center</span>
                 </div>
                 <p className="text-sm text-trinity-ink font-semibold">
                   {companyLocations.engineeringCenter.address}
                 </p>
                 <p className="text-xs text-trinity-slate leading-relaxed">
-                  {companyLocations.engineeringCenter.region} • Applied AI decision intelligence, multimodal extraction pipelines, and proprietary neural architecture research.
+                  Karnataka, India • Applied AI decision intelligence, multimodal extraction pipelines, and proprietary neural architecture research.
                 </p>
               </div>
 
@@ -271,7 +273,7 @@ export default function AboutUsPage({ onNavigate, onRequestDemo }) {
         {/* =========================================================================
             FINAL EXECUTIVE CTA
             ========================================================================= */}
-        <FinalCTA onRequestDemo={onRequestDemo} />
+        <FinalCTA onRequestDemo={onRequestDemo} onNavigate={onNavigate} />
 
       </main>
 
