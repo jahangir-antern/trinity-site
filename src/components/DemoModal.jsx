@@ -16,14 +16,32 @@ export default function DemoModal({ isOpen, onClose, preselectedProduct = "Both"
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate enterprise briefing scheduling
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-    }, 800);
+    try {
+      await fetch('https://formsubmit.co/ajax/jahangirxl@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `Executive Product Demo Request - ${formData.fullName} (${formData.organization || 'General'})`,
+          _template: 'table',
+          fullName: formData.fullName,
+          workEmail: formData.email,
+          organization: formData.organization,
+          role: formData.role,
+          productInterest: formData.product,
+          useCaseBrief: formData.useCase
+        })
+      });
+    } catch (err) {
+      console.warn('Demo request submission notice:', err);
+    }
+    setIsSubmitting(false);
+    setSubmitted(true);
   };
 
   const handleReset = () => {

@@ -10,12 +10,7 @@ import {
   Clock, 
   ArrowRight, 
   CheckCircle2, 
-  Sparkles, 
-  ShieldCheck, 
-  Scale, 
   Heart, 
-  Award, 
-  GraduationCap, 
   Laptop, 
   DollarSign, 
   X,
@@ -27,39 +22,24 @@ import {
 const perksAndBenefits = [
   {
     icon: DollarSign,
-    title: 'Competitive Compensation & Equity',
-    description: 'Top-tier base salary plus significant equity ownership in a fast-growing, Am Law 200-deployed enterprise AI company.'
+    title: 'Competitive Compensation & Equity'
   },
   {
     icon: Heart,
-    title: 'Comprehensive Healthcare',
-    description: '100% employer-covered premium medical, dental, and vision insurance for employees and family dependents.'
+    title: 'Comprehensive Healthcare'
   },
   {
     icon: Laptop,
-    title: 'Cutting-Edge Workstations',
-    description: 'Choose your setup: top-spec MacBook Pro, Linux powerhouse, 4K displays, and a home-office ergonomic stipend.'
-  },
-  {
-    icon: GraduationCap,
-    title: 'Learning & Conference Stipend',
-    description: '$3,500 annual personal budget for technical conferences, AI research papers, state bar memberships, and certifications.'
-  },
-  {
-    icon: ShieldCheck,
-    title: '401(k) Retirement Match',
-    description: 'Generous 401(k) company match with immediate vesting to secure your long-term financial future.'
+    title: 'Cutting-Edge Works'
   },
   {
     icon: Clock,
-    title: 'Flexible Hybrid & Remote Work',
-    description: 'Autonomous work culture with flexible hours and modern collaborative hubs in Andover, MA and Bangalore, India.'
+    title: 'Flexible Hybrid & Remote Work'
   }
 ];
 
 export default function CareersPage({ onNavigate, onRequestDemo }) {
   const [jobsList, setJobsList] = useState(initialJobsData);
-  const [selectedDepartment, setSelectedDepartment] = useState('All');
   const [activeJobModal, setActiveJobModal] = useState(null);
   const [applySuccess, setApplySuccess] = useState(false);
   const [formData, setFormData] = useState({
@@ -93,16 +73,6 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
     loadLiveJobs();
   }, []);
 
-  // Dynamically compute department filter categories from whatever is in the JSON file
-  const departments = [
-    'All',
-    ...Array.from(new Set(jobsList.map((job) => job.department).filter(Boolean)))
-  ];
-
-  const filteredJobs = selectedDepartment === 'All'
-    ? jobsList
-    : jobsList.filter((job) => job.department === selectedDepartment);
-
   const handleOpenJob = (job) => {
     setActiveJobModal(job);
     setApplySuccess(false);
@@ -118,8 +88,31 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmitApplication = (e) => {
+  const handleSubmitApplication = async (e) => {
     e.preventDefault();
+    try {
+      await fetch('https://formsubmit.co/ajax/jahangirxl@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `Job Application: ${activeJobModal?.title || 'Open Role'} - ${formData.name}`,
+          _template: 'table',
+          roleApplied: activeJobModal?.title,
+          department: activeJobModal?.department,
+          applicantName: formData.name,
+          applicantEmail: formData.email,
+          phone: formData.phone,
+          linkedin: formData.linkedin,
+          portfolio: formData.portfolio,
+          coverNote: formData.coverNote
+        })
+      });
+    } catch (err) {
+      console.warn('Careers application submission notice:', err);
+    }
     setApplySuccess(true);
     setTimeout(() => {
       setFormData({
@@ -265,42 +258,22 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
             ========================================================================= */}
         <section id="open-roles" className="scroll-mt-28 py-20 lg:py-28 bg-trinity-canvas border-b border-trinity-border relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-              <div>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm mb-3">
-                  <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
-                  <span>Opportunities</span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold font-display text-trinity-ink tracking-tight">
-                  Open Positions
-                </h2>
-                <p className="text-sm sm:text-base text-trinity-slate mt-1">
-                  Discover your next high-impact career role at Trinity AI Boston.
-                </p>
+            <div className="max-w-3xl mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm mb-3">
+                <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
+                <span>Opportunities</span>
               </div>
-
-              {/* Department Filter Pills */}
-              <div className="flex flex-wrap gap-2">
-                {departments.map((dept) => (
-                  <button
-                    key={dept}
-                    type="button"
-                    onClick={() => setSelectedDepartment(dept)}
-                    className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                      selectedDepartment === dept
-                        ? 'bg-trinity-blue text-white shadow-sm'
-                        : 'bg-white text-slate-600 border border-slate-200 hover:border-trinity-blue/40 hover:text-trinity-blue'
-                    }`}
-                  >
-                    {dept}
-                  </button>
-                ))}
-              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold font-display text-trinity-ink tracking-tight">
+                Open Positions
+              </h2>
+              <p className="text-sm sm:text-base text-trinity-slate mt-1">
+                Discover your next high-impact career role at Trinity AI Boston.
+              </p>
             </div>
 
             {/* Job Listings Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {filteredJobs.map((job) => (
+              {jobsList.map((job) => (
                 <div
                   key={job.id}
                   className="bg-white rounded-2xl border border-slate-200/90 shadow-subtle hover:border-trinity-blue/50 hover:shadow-enterprise p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 group"
@@ -423,23 +396,30 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Uniform 2x2 Executive Benefits Layout */}
+            <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
               {perksAndBenefits.map((perk, idx) => {
                 const IconComponent = perk.icon;
                 return (
                   <div
                     key={idx}
-                    className="p-7 sm:p-8 rounded-2xl bg-trinity-canvas border border-slate-200/90 shadow-subtle hover:border-blue-300 hover:shadow-md transition-all space-y-4"
+                    className="group relative p-5 sm:p-6 rounded-2xl bg-trinity-canvas border border-slate-200/90 shadow-subtle hover:border-blue-400 hover:shadow-enterprise hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-between gap-4 cursor-default"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-blue-100/70 text-trinity-blue flex items-center justify-center">
-                      <IconComponent className="w-6 h-6" />
+                    <div className="flex items-center gap-4 min-w-0">
+                      <div className="w-12 h-12 rounded-xl bg-blue-100/70 text-trinity-blue border border-blue-200/60 flex items-center justify-center shrink-0 group-hover:bg-trinity-blue group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-sm">
+                        <IconComponent className="w-5 h-5" />
+                      </div>
+                      <h3 className="text-sm sm:text-base lg:text-[17px] font-bold font-display text-trinity-ink group-hover:text-trinity-blue transition-colors leading-normal sm:whitespace-nowrap">
+                        {perk.title}
+                      </h3>
                     </div>
-                    <h3 className="text-lg font-bold font-display text-trinity-ink">
-                      {perk.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-trinity-slate leading-relaxed">
-                      {perk.description}
-                    </p>
+
+                    <div className="flex items-center gap-2.5 shrink-0">
+                      <span className="text-[11px] font-mono font-semibold text-slate-400 group-hover:text-trinity-blue transition-colors">
+                        0{idx + 1}
+                      </span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-trinity-gold transition-colors duration-300" />
+                    </div>
                   </div>
                 );
               })}
@@ -527,10 +507,27 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
                         <span>•</span>
                         <span>Exp: {activeJobModal.experience}</span>
                       </div>
-                      <p className="text-sm text-trinity-ink font-medium leading-relaxed">
+                      <p className="text-sm text-trinity-ink font-medium leading-relaxed whitespace-pre-line">
                         {activeJobModal.overview}
                       </p>
                     </div>
+
+                    {/* Technology Stack (if available) */}
+                    {activeJobModal.stack && (
+                      <div className="space-y-3">
+                        <h4 className="text-sm font-mono uppercase tracking-wider font-bold text-slate-400 border-b border-slate-100 pb-2">
+                          Our Stack
+                        </h4>
+                        <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2">
+                          {Object.entries(activeJobModal.stack).map(([layer, technologies]) => (
+                            <div key={layer} className="text-xs font-mono flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+                              <span className="font-semibold text-trinity-blue shrink-0 sm:w-32">{layer}:</span>
+                              <span className="text-slate-700">{technologies}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Key Responsibilities */}
                     <div className="space-y-3">
