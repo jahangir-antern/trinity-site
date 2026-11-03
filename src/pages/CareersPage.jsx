@@ -12,8 +12,6 @@ import {
   CheckCircle2, 
   Sparkles, 
   ShieldCheck, 
-  Cpu, 
-  Code2, 
   Scale, 
   Heart, 
   Award, 
@@ -23,8 +21,7 @@ import {
   X,
   Send,
   UploadCloud,
-  ChevronRight,
-  Building2
+  ChevronRight
 } from 'lucide-react';
 
 const perksAndBenefits = [
@@ -450,71 +447,7 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
           </div>
         </section>
 
-        {/* =========================================================================
-            SECTION 4: GLOBAL HUBS
-            ========================================================================= */}
-        <section className="py-20 lg:py-24 bg-[#071120] text-white border-b border-[#1b2b48] relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-950/40 border border-trinity-gold/50 text-trinity-brightGold backdrop-blur-md shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
-                <span>Global Operations</span>
-              </div>
-              <h3 className="text-3xl sm:text-4xl font-bold font-display text-white">
-                Our Primary Hubs
-              </h3>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                Headquartered in Greater Boston with advanced engineering centers in Bangalore.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {/* Hub 1: Boston */}
-              <div className="p-8 rounded-2xl bg-white/[0.04] border border-white/10 space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-trinity-lightBlue flex items-center justify-center">
-                    <Building2 className="w-5 h-5" />
-                  </div>
-                  <span className="text-[11px] font-mono uppercase px-2.5 py-0.5 rounded bg-blue-900/40 text-trinity-lightBlue border border-blue-700/40">
-                    Corporate & Legal HQ
-                  </span>
-                </div>
-                <h4 className="text-xl font-bold font-display text-white">
-                  Greater Boston, Massachusetts
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  2 Trinity Ct, Andover, MA 01810. Home to executive leadership, legal engineering, carrier compliance, and trial partner integrations.
-                </p>
-                <div className="pt-2 text-xs font-mono text-slate-400">
-                  Hybrid • In-Person • Executive
-                </div>
-              </div>
-
-              {/* Hub 2: Bangalore */}
-              <div className="p-8 rounded-2xl bg-white/[0.04] border border-white/10 space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-trinity-brightGold flex items-center justify-center">
-                    <Cpu className="w-5 h-5" />
-                  </div>
-                  <span className="text-[11px] font-mono uppercase px-2.5 py-0.5 rounded bg-amber-900/40 text-trinity-brightGold border border-amber-700/40">
-                    Engineering & AI Hub
-                  </span>
-                </div>
-                <h4 className="text-xl font-bold font-display text-white">
-                  Bengaluru, Karnataka, India
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  301 J, Brigade Twin Tower, Yashwantpur, Bengaluru. Advanced engineering center leading high-throughput OCR pipelines, vector retrieval indexing, and distributed microservice infrastructure.
-                </p>
-                <div className="pt-2 text-xs font-mono text-slate-400">
-                  Full-Stack • AI Retrieval • Systems
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 5: FINAL CTA */}
+        {/* SECTION 4: FINAL CTA */}
         <FinalCTA onRequestDemo={onRequestDemo} onNavigate={onNavigate} />
       </main>
 
