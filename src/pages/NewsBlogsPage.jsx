@@ -25,9 +25,7 @@ const newsAndBlogsData = [
     featured: true,
     excerpt: 'Trinity AI Boston is pleased to announce strategic partnerships with NVIDIA and Amazon Web Services (AWS), strengthening our capabilities to develop and deliver next-generation AI solutions.',
     content: [
-      'Trinity AI Boston is pleased to announce strategic partnerships with NVIDIA and Amazon Web Services (AWS), strengthening our capabilities to develop and deliver next-generation AI solutions. These partnerships represent an important step in our commitment to helping businesses accelerate AI adoption, build intelligent applications, and drive digital transformation.',
-      'Through these strategic alliances, Trinity AI Boston leverages NVIDIA’s accelerated computing architecture and advanced AI enterprise frameworks alongside AWS’s secure, scalable cloud infrastructure. This collaboration reinforces our engineering capacity across multimodal document reasoning, low-latency inference pipelines, and single-tenant enterprise deployments.',
-      'Together with NVIDIA and AWS, Trinity AI Boston continues to push the boundaries of deterministic, high-consequence AI architectures—delivering verified accuracy and robust compliance for enterprise operations.'
+      'Trinity AI Boston is pleased to announce strategic partnerships with NVIDIA and Amazon Web Services (AWS), strengthening our capabilities to develop and deliver next-generation AI solutions. These partnerships represent an important step in our commitment to helping businesses accelerate AI adoption, build intelligent applications, and drive digital transformation.'
     ]
   },
   {
@@ -48,54 +46,6 @@ const newsAndBlogsData = [
     ]
   },
   {
-    id: 'first-party-property-defense',
-    category: 'Claims & Coverage',
-    badge: 'Technical Insight',
-    title: 'First-Party Property Defense: Tracing Every Assertion from First Notice of Loss',
-    subtitle: 'Navigating statutory clocks, recorded statements, and estimate disputes at enterprise scale with CosmosOne™.',
-    date: 'September 22, 2026',
-    readTime: '7 min read',
-    author: 'CosmosOne™ Architecture Group',
-    featured: false,
-    excerpt: 'Navigating statutory deadlines, engineer reports, proof-of-loss submissions, and opposing estimate line items requires reconciling disparate records across months of claim handling.',
-    content: [
-      'In first-party property litigation, the defense often hinges on timelines: when was the notice of loss received, when were sworn proofs of loss demanded and submitted, and what exclusions were timely reserved.',
-      'CosmosOne™ ingests the entire carrier claims file—including adjuster logs, field notes, weather data, and contractor estimates—building a synchronized chronological spine. It identifies gaps between alleged dates of loss and initial notice, isolating coverage defenses with evidentiary proof.'
-    ]
-  },
-  {
-    id: 'construction-defect-file-scale',
-    category: 'Construction Defect',
-    badge: 'Case Study',
-    title: 'Multi-Party Construction Defect Defense: Decoupling Terabyte-Scale Dockets',
-    subtitle: 'How CosmosNexus™ isolates exposure caps, trade apportionments, and opposing expert deposition breakdowns.',
-    date: 'August 14, 2026',
-    readTime: '5 min read',
-    author: 'Litigation Technology Group',
-    featured: false,
-    excerpt: 'When facing 40+ subcontractors, thousands of job-site inspection photographs, and competing expert disclosures, pinpointing trade exposure is vital for meaningful mediation posture.',
-    content: [
-      'Complex construction defect litigation routinely overwhelms traditional review teams with terabytes of drawings, change orders, daily job logs, and expert defect matrices.',
-      'CosmosNexus™ applies specialized multimodal extraction (Polaris) alongside docket reasoning (Cortex) to isolate trade scopes, identify unallocated repair demands, and cross-examine plaintiff expert theories against photographic evidence.'
-    ]
-  },
-  {
-    id: 'am-law-200-production',
-    category: 'Company News',
-    badge: 'Milestone',
-    title: 'Cosmos Platform Enters Live Production Deployment with Am Law 200 Defense Firm',
-    subtitle: 'Enterprise-grade deployment processes real matters inside the firm’s private cloud environment.',
-    date: 'July 30, 2026',
-    readTime: '4 min read',
-    author: 'Client Solutions & Strategic Partnerships',
-    featured: false,
-    excerpt: 'A leading Am Law 200 firm specializing in insurance litigation has deployed Trinity AI Boston’s Cosmos platform across its primary defense practice groups.',
-    content: [
-      'Trinity AI Boston is pleased to share that an Am Law 200 litigation firm has deployed the Cosmos platform into active production.',
-      'Operating entirely in a single-tenant virtual private cloud, the firm uses Cortex, Polaris, and Argus™ to support defense counsel in first-party property and construction defect matters while maintaining absolute compliance with panel billing guidelines.'
-    ]
-  },
-  {
     id: 'uspto-patent-filings',
     category: 'Legal AI Governance',
     badge: 'Patents & IP',
@@ -113,7 +63,7 @@ const newsAndBlogsData = [
   }
 ];
 
-const categories = ['All', 'Legal AI Governance', 'Claims & Coverage', 'Construction Defect', 'Company News'];
+const categories = ['All', 'Company News', 'Legal AI Governance'];
 
 export default function NewsBlogsPage({ onNavigate, onRequestDemo }) {
   const [selectedCategory, setSelectedCategory] = useState('All');

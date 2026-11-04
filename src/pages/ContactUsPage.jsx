@@ -39,30 +39,74 @@ export default function ContactUsPage({ onNavigate, onRequestDemo }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const mailtoUrl = `mailto:jahangirxl@gmail.com?subject=${encodeURIComponent(
+    `[Trinity AI Inquiry] ${formData.inquiryType || 'General'} - ${formData.fullName || 'Counsel'}`
+  )}&body=${encodeURIComponent(
+    `TRINITY AI BOSTON - DIRECT BRIEFING INQUIRY\n` +
+    `-------------------------------------------\n` +
+    `Full Name: ${formData.fullName}\n` +
+    `Work Email: ${formData.workEmail}\n` +
+    `Organization: ${formData.organization || 'Not provided'}\n` +
+    `Phone: ${formData.phone || 'Not provided'}\n` +
+    `Inquiry Scope: ${formData.inquiryType}\n` +
+    `Message Context:\n${formData.message}\n\n` +
+    `Sent Date: ${new Date().toLocaleString()}\n` +
+    `Recipient: jahangirxl@gmail.com`
+  )}`;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('submitting');
+
+    const payload = {
+      Form: 'Direct Briefing Inquiry',
+      FullName: formData.fullName,
+      WorkEmail: formData.workEmail,
+      Organization: formData.organization || 'N/A',
+      Phone: formData.phone || 'N/A',
+      InquiryScope: formData.inquiryType,
+      Message: formData.message,
+      Recipient: 'jahangirxl@gmail.com',
+      Timestamp: new Date().toISOString()
+    };
+
+    // Primary: ShipMyForm instant serverless endpoint (forwards directly to jahangirxl@gmail.com)
     try {
+      await fetch('https://shipmyform.com/to/jahangirxl@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      console.warn('ShipMyForm submission notice:', err);
+    }
+
+    // Secondary: FormSubmit with 3s timeout
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 3000);
       await fetch('https://formsubmit.co/ajax/jahangirxl@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
+        signal: controller.signal,
         body: JSON.stringify({
           _subject: `New Trinity AI Inquiry: ${formData.inquiryType || 'General'} - ${formData.fullName}`,
+          _captcha: 'false',
           _template: 'table',
-          fullName: formData.fullName,
-          workEmail: formData.workEmail,
-          organization: formData.organization,
-          phone: formData.phone,
-          inquiryType: formData.inquiryType,
-          message: formData.message
+          ...payload
         })
       });
+      clearTimeout(timer);
     } catch (err) {
-      console.warn('Inquiry form submission notice:', err);
+      console.warn('FormSubmit timeout/notice:', err);
     }
+
     setFormStatus('submitted');
   };
 
@@ -193,13 +237,20 @@ export default function ContactUsPage({ onNavigate, onRequestDemo }) {
                       Inquiry Received
                     </h3>
                     <p className="text-sm text-emerald-900 max-w-md mx-auto leading-relaxed">
-                      Thank you, <strong>{formData.fullName || 'Counsel'}</strong>. Your inquiry has been routed to our executive solutions group. A member of our team will contact you within 4 business hours.
+                      Thank you, <strong>{formData.fullName || 'Counsel'}</strong>. Your inquiry has been routed directly to <strong>jahangirxl@gmail.com</strong>. A member of our executive team will review your dossier and follow up within 4 business hours.
                     </p>
-                    <div className="pt-2">
+                    <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                      <a
+                        href={mailtoUrl}
+                        className="btn-primary py-2.5 px-6 text-xs font-semibold bg-emerald-700 hover:bg-emerald-800 text-white cursor-pointer inline-flex items-center gap-2"
+                      >
+                        <Mail className="w-4 h-4" />
+                        <span>Send Direct Copy via Email</span>
+                      </a>
                       <button
                         type="button"
                         onClick={handleReset}
-                        className="btn-primary py-2.5 px-6 text-xs font-semibold bg-emerald-700 hover:bg-emerald-800 text-white cursor-pointer"
+                        className="px-5 py-2.5 rounded-xl border border-emerald-300 text-xs font-semibold text-emerald-800 hover:bg-emerald-100 transition-colors cursor-pointer"
                       >
                         Send Another Message
                       </button>

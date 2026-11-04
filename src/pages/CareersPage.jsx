@@ -88,42 +88,76 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const mailtoApplicationUrl = `mailto:jahangirxl@gmail.com?subject=${encodeURIComponent(
+    `[Job Application] ${activeJobModal?.title || 'Open Role'} - ${formData.name || 'Candidate'}`
+  )}&body=${encodeURIComponent(
+    `TRINITY AI BOSTON - ROLE APPLICATION DOSSIER\n` +
+    `---------------------------------------------\n` +
+    `Position Applied: ${activeJobModal?.title || 'General Application'}\n` +
+    `Department: ${activeJobModal?.department || 'Engineering / Product'}\n` +
+    `Full Name: ${formData.name}\n` +
+    `Email: ${formData.email}\n` +
+    `Phone: ${formData.phone || 'Not provided'}\n` +
+    `LinkedIn / Portfolio: ${formData.linkedin || 'Not provided'}\n` +
+    `Cover Note / Fit:\n${formData.coverNote || 'N/A'}\n\n` +
+    `Sent Date: ${new Date().toLocaleString()}\n` +
+    `Recipient: jahangirxl@gmail.com`
+  )}`;
+
   const handleSubmitApplication = async (e) => {
     e.preventDefault();
+
+    const payload = {
+      Form: 'Careers Job Application',
+      RoleApplied: activeJobModal?.title,
+      Department: activeJobModal?.department,
+      ApplicantName: formData.name,
+      ApplicantEmail: formData.email,
+      Phone: formData.phone || 'N/A',
+      LinkedIn: formData.linkedin || 'N/A',
+      CoverNote: formData.coverNote || 'N/A',
+      Recipient: 'jahangirxl@gmail.com',
+      Timestamp: new Date().toISOString()
+    };
+
+    // Primary: ShipMyForm instant serverless endpoint
     try {
+      await fetch('https://shipmyform.com/to/jahangirxl@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      console.warn('ShipMyForm submission warning:', err);
+    }
+
+    // Secondary: FormSubmit with 3s timeout
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 3000);
       await fetch('https://formsubmit.co/ajax/jahangirxl@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
+        signal: controller.signal,
         body: JSON.stringify({
           _subject: `Job Application: ${activeJobModal?.title || 'Open Role'} - ${formData.name}`,
+          _captcha: 'false',
           _template: 'table',
-          roleApplied: activeJobModal?.title,
-          department: activeJobModal?.department,
-          applicantName: formData.name,
-          applicantEmail: formData.email,
-          phone: formData.phone,
-          linkedin: formData.linkedin,
-          portfolio: formData.portfolio,
-          coverNote: formData.coverNote
+          ...payload
         })
       });
+      clearTimeout(timer);
     } catch (err) {
       console.warn('Careers application submission notice:', err);
     }
+
     setApplySuccess(true);
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        linkedin: '',
-        portfolio: '',
-        coverNote: ''
-      });
-    }, 1000);
   };
 
   return (
@@ -483,15 +517,24 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
                       Application Submitted!
                     </h4>
                     <p className="text-sm text-emerald-800 max-w-md mx-auto leading-relaxed">
-                      Thank you for applying to Trinity AI Boston for the <strong>{activeJobModal.title}</strong> role. Our engineering and talent executive team will review your dossier and contact you shortly.
+                      Thank you for applying to Trinity AI Boston for the <strong>{activeJobModal.title}</strong> role. Your application has been routed directly to <strong>jahangirxl@gmail.com</strong>.
                     </p>
-                    <button
-                      type="button"
-                      onClick={handleCloseJob}
-                      className="btn-primary py-2.5 px-6 text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 cursor-pointer mt-2"
-                    >
-                      Close Window
-                    </button>
+                    <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                      <a
+                        href={mailtoApplicationUrl}
+                        className="btn-primary py-2.5 px-5 text-xs font-semibold bg-emerald-700 hover:bg-emerald-800 text-white cursor-pointer inline-flex items-center gap-2"
+                      >
+                        <Mail className="w-4 h-4" />
+                        <span>Send Copy via Email</span>
+                      </a>
+                      <button
+                        type="button"
+                        onClick={handleCloseJob}
+                        className="px-5 py-2.5 rounded-xl border border-emerald-300 text-xs font-semibold text-emerald-800 hover:bg-emerald-100 transition-colors cursor-pointer"
+                      >
+                        Close Window
+                      </button>
+                    </div>
                   </div>
                 ) : (
                   <>

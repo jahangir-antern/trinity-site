@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { X, CheckCircle2, ShieldCheck, ArrowRight, Building, Mail, User, Briefcase, FileText } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, CheckCircle2, ShieldCheck, ArrowRight, Building, Mail, User, Briefcase, FileText, Send } from 'lucide-react';
 import trinityLogo from '../assets/trinity-logo.png';
 
-export default function DemoModal({ isOpen, onClose, preselectedProduct = "Both" }) {
+export default function DemoModal({ isOpen, onClose, preselectedProduct = "The Cosmos Platform" }) {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -14,32 +14,85 @@ export default function DemoModal({ isOpen, onClose, preselectedProduct = "Both"
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  useEffect(() => {
+    if (preselectedProduct) {
+      setFormData((prev) => ({
+        ...prev,
+        product: preselectedProduct
+      }));
+    }
+  }, [preselectedProduct, isOpen]);
+
   if (!isOpen) return null;
+
+  const mailtoUrl = `mailto:jahangirxl@gmail.com?subject=${encodeURIComponent(
+    `[Executive Demo Request] ${formData.product || 'The Cosmos Platform'} - ${formData.fullName || 'Counsel'}`
+  )}&body=${encodeURIComponent(
+    `TRINITY AI BOSTON - EXECUTIVE PRODUCT DEMO REQUEST\n` +
+    `--------------------------------------------------\n` +
+    `Full Name: ${formData.fullName}\n` +
+    `Work Email: ${formData.email}\n` +
+    `Organization / Law Firm: ${formData.organization}\n` +
+    `Professional Role: ${formData.role || 'Not specified'}\n` +
+    `Platform of Interest: ${formData.product}\n` +
+    `Use Case Overview: ${formData.useCase || 'N/A'}\n\n` +
+    `Submission Date: ${new Date().toLocaleString()}\n` +
+    `Target Recipient: jahangirxl@gmail.com`
+  )}`;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const payload = {
+      Form: 'Executive Product Demo Request',
+      FullName: formData.fullName,
+      WorkEmail: formData.email,
+      Organization: formData.organization,
+      Role: formData.role || 'Not specified',
+      PlatformOfInterest: formData.product,
+      UseCaseBrief: formData.useCase || 'N/A',
+      Recipient: 'jahangirxl@gmail.com',
+      Timestamp: new Date().toISOString()
+    };
+
+    // Primary: ShipMyForm instant serverless endpoint (forwards directly to jahangirxl@gmail.com)
     try {
+      await fetch('https://shipmyform.com/to/jahangirxl@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      console.warn('ShipMyForm submission warning:', err);
+    }
+
+    // Secondary: FormSubmit with 3s timeout
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 3000);
       await fetch('https://formsubmit.co/ajax/jahangirxl@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
+        signal: controller.signal,
         body: JSON.stringify({
           _subject: `Executive Product Demo Request - ${formData.fullName} (${formData.organization || 'General'})`,
+          _captcha: 'false',
           _template: 'table',
-          fullName: formData.fullName,
-          workEmail: formData.email,
-          organization: formData.organization,
-          role: formData.role,
-          productInterest: formData.product,
-          useCaseBrief: formData.useCase
+          ...payload
         })
       });
+      clearTimeout(timer);
     } catch (err) {
-      console.warn('Demo request submission notice:', err);
+      console.warn('FormSubmit background status:', err);
     }
+
     setIsSubmitting(false);
     setSubmitted(true);
   };
@@ -103,19 +156,38 @@ export default function DemoModal({ isOpen, onClose, preselectedProduct = "Both"
               <div className="bg-trinity-canvas border border-trinity-border rounded-xl p-4 text-left text-xs text-trinity-slate space-y-2 mb-6">
                 <div className="flex items-center gap-2 text-trinity-ink font-semibold">
                   <ShieldCheck className="w-4 h-4 text-trinity-blue" />
-                  <span>Confidentiality & Mutual NDA Guarantee</span>
+                  <span>Confidentiality & Direct Routing</span>
                 </div>
                 <p>
-                  All case profiles, file samples, and exposure discussions are protected under strict enterprise privilege and confidentiality protocols.
+                  Your inquiry has been logged and forwarded directly to <strong>jahangirxl@gmail.com</strong>.
                 </p>
+                <div className="pt-2">
+                  <a
+                    href={mailtoUrl}
+                    className="inline-flex items-center gap-2 text-xs font-semibold text-trinity-blue hover:underline"
+                  >
+                    <Mail className="w-3.5 h-3.5" />
+                    <span>Send direct copy via Email / Gmail client →</span>
+                  </a>
+                </div>
               </div>
 
-              <button
-                onClick={handleReset}
-                className="btn-primary w-full"
-              >
-                Return to Trinity AI Boston
-              </button>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href={mailtoUrl}
+                  className="btn-primary flex-1 py-2.5 px-4 text-center inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>Send via Email Client</span>
+                </a>
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  className="px-4 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm font-semibold text-slate-700 hover:bg-slate-100 transition-colors"
+                >
+                  Close Window
+                </button>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -215,12 +287,24 @@ export default function DemoModal({ isOpen, onClose, preselectedProduct = "Both"
                       onChange={(e) => setFormData({ ...formData, product: e.target.value })}
                       className="w-full pl-9 pr-3 py-2 text-sm bg-white border border-trinity-border rounded-lg text-trinity-ink focus:border-trinity-blue focus:ring-1 focus:ring-trinity-blue outline-none transition font-medium text-trinity-blue"
                     >
+                      {formData.product && ![
+                        "The Cosmos Platform",
+                        "CosmosOne™ (First-Party Property)",
+                        "CosmosNexus™ (Construction Defect)",
+                        "CosmosHelios™ (Intake & Conflicts)",
+                        "Cosmos Helix™ (Nursing Home & Medical)",
+                        "Cosmos Gravity™ (Audit & Compliance)"
+                      ].includes(formData.product) && (
+                        <option value={formData.product}>{formData.product}</option>
+                      )}
                       <option value="The Cosmos Platform">The Cosmos Platform (Enterprise Overview)</option>
                       <option value="CosmosOne™ (First-Party Property)">CosmosOne™ (First-Party Property)</option>
                       <option value="CosmosNexus™ (Construction Defect)">CosmosNexus™ (Construction Defect)</option>
                       <option value="CosmosHelios™ (Intake & Conflicts)">CosmosHelios™ (Intake & Conflicts)</option>
                       <option value="Cosmos Helix™ (Nursing Home & Medical)">Cosmos Helix™ (Nursing Home & Medical)</option>
                       <option value="Cosmos Gravity™ (Audit & Compliance)">Cosmos Gravity™ (Audit & Compliance)</option>
+                      <option value="Executive Briefing">Executive Briefing / Platform Overview</option>
+                      <option value="General Inquiry">General Enterprise Inquiry</option>
                     </select>
                   </div>
                 </div>
