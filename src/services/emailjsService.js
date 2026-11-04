@@ -6,9 +6,9 @@ import emailjs from '@emailjs/browser';
 // VITE_EMAILJS_TEMPLATE_ID
 // VITE_EMAILJS_PUBLIC_KEY
 export const EMAILJS_CONFIG = {
-  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || '',
-  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '',
-  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '',
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_imjuuv5',
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_8pkej9k',
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'cDXudXLBsOyHsK_bZ',
   recipientEmail: 'jahangirxl@gmail.com'
 };
 
@@ -30,16 +30,30 @@ export async function sendFormViaEmailJS(formType, data) {
   const subject = data.subject || data._subject || `[Trinity AI] ${formType} - ${senderName}`;
 
   const templateParams = {
-    to_email: recipient,
-    recipient_email: recipient,
-    to_name: 'Trinity AI Boston (Admin)',
+    name: senderName,
     from_name: senderName,
+    fullName: senderName,
+    email: senderEmail,
     from_email: senderEmail,
     reply_to: senderEmail,
+    workEmail: senderEmail,
+    to_name: 'Trinity AI Boston (Admin)',
+    to_email: recipient,
+    recipient_email: recipient,
     subject: subject,
+    title: subject,
     form_type: formType,
     message: dossierDetails,
+    dossier: dossierDetails,
     submission_time: new Date().toLocaleString(),
+    organization: data.organization || '',
+    role: data.role || '',
+    product: data.product || data.platformOfInterest || '',
+    useCase: data.useCase || data.useCaseBrief || '',
+    phone: data.phone || '',
+    inquiryType: data.inquiryType || '',
+    roleApplied: data.roleApplied || '',
+    coverNote: data.coverNote || '',
     ...data
   };
 
