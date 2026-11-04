@@ -68,27 +68,6 @@ export default function TrustSection() {
           })}
         </div>
 
-        {/* IP & Attestation Summary Banner */}
-        <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-white border border-trinity-border flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-1 text-left">
-            <span className="text-xs font-mono font-semibold uppercase text-trinity-blue">
-              Intellectual Property & Audit Attestation
-            </span>
-            <p className="text-sm text-trinity-slate leading-relaxed">
-              Ten provisional patent filings with the USPTO covering human-in-the-loop gated pipelines, citation grounding, multi-modal extraction and workflow orchestration. SOC 2 Type 1 attested August 2026.
-            </p>
-          </div>
-
-          <div className="shrink-0 flex items-center gap-3">
-            <div className="px-4 py-2 rounded-xl bg-trinity-canvas border border-trinity-border text-xs font-mono font-semibold text-trinity-ink">
-              USPTO Filed (10)
-            </div>
-            <div className="px-4 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-xs font-mono font-semibold text-emerald-700">
-              SOC 2 Type 1 Attested
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
   );

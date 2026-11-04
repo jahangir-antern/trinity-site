@@ -228,19 +228,6 @@ export default function OurTeamSection({ onRequestDemo }) {
           {advisoryTeam.map((member) => renderMemberCard(member))}
         </div>
 
-        {/* Board Governance Notice (Light Mode) */}
-        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-white border border-blue-200/80 shadow-subtle flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-trinity-slate">
-          <div className="flex items-center gap-3">
-            <ShieldCheck className="w-5 h-5 text-trinity-blue shrink-0" />
-            <p className="leading-relaxed">
-              <span className="text-trinity-ink font-bold">Institutional Governance:</span> Led by co-founders Jayashankar Nanjundaswamy (President & CEO) and Ganesh Ramamoorthy (CTO), with verified operational leadership across Greater Boston, Massachusetts and Bangalore, India.
-            </p>
-          </div>
-          <span className="font-mono text-slate-500 font-medium shrink-0">
-            2 Trinity Ct, Andover, MA 01810
-          </span>
-        </div>
-
       </div>
 
       {/* =========================================================================

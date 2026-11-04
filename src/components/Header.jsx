@@ -164,7 +164,7 @@ export default function Header({ onNavigate, onRequestDemo, currentPage = 'home'
                   onClick={(e) => handleLinkClick(e, link)}
                   className={`px-3.5 py-2 text-[14px] font-medium rounded-md transition-all duration-300 ease-in-out cursor-pointer ${
                     isActive
-                      ? 'text-white font-semibold bg-white/15'
+                      ? 'text-white font-semibold'
                       : 'text-slate-300 hover:text-white hover:bg-white/10'
                   } ${isResearch ? 'opacity-85' : ''}`}
                 >

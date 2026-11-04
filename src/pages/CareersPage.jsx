@@ -11,9 +11,7 @@ import {
   Clock, 
   ArrowRight, 
   CheckCircle2, 
-  Heart, 
   Laptop, 
-  DollarSign, 
   X,
   Send,
   UploadCloud,
@@ -21,14 +19,6 @@ import {
 } from 'lucide-react';
 
 const perksAndBenefits = [
-  {
-    icon: DollarSign,
-    title: 'Competitive Compensation & Equity'
-  },
-  {
-    icon: Heart,
-    title: 'Comprehensive Healthcare'
-  },
   {
     icon: Laptop,
     title: 'Cutting-Edge Works'
