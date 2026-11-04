@@ -91,7 +91,7 @@ const slides = [
     headlineHighlight: 'High-Stakes Records',
     headlineEnd: '.',
     gradientClass: 'from-cyan-300 via-sky-200 to-blue-200',
-    description: 'One engine across the practice lines where the record is largest: First-party property (CosmosOne™), Construction defect (CosmosNexus™), Intake (CosmosHelios™), and Medical files (Cosmos Helix™). What changes is the law, not the machinery.',
+    description: 'One engine across the practice lines where the record is largest: First-party property (CosmosOne), Construction defect (CosmosNexus), Intake (CosmosHelios), and Medical files (Cosmos Helix). What changes is the law, not the machinery.',
     primaryCta: {
       label: 'Explore The Platform',
       href: '#products',
@@ -104,7 +104,7 @@ const slides = [
     },
     assurances: [
       { type: 'icon', icon: Zap, iconColor: 'text-cyan-300', text: 'Cortex & Polaris Record Engines' },
-      { type: 'icon', icon: FileCheck, iconColor: 'text-trinity-lightBlue', text: 'Argus™ Adversarial Verification' },
+      { type: 'icon', icon: FileCheck, iconColor: 'text-trinity-lightBlue', text: 'Argus Adversarial Verification' },
       { type: 'icon', icon: ShieldCheck, iconColor: 'text-emerald-400', text: 'Single Tenant by Design' }
     ],
     tabTitle: 'The Cosmos Platform',
@@ -134,7 +134,7 @@ const slides = [
       isModal: true
     },
     assurances: [
-      { type: 'icon', icon: Layers, iconColor: 'text-amber-300', text: 'Cosmos Gravity™ Audit Enforcement' },
+      { type: 'icon', icon: Layers, iconColor: 'text-amber-300', text: 'Cosmos Gravity Audit Enforcement' },
       { type: 'icon', icon: TrendingUp, iconColor: 'text-trinity-lightBlue', text: 'Ten USPTO Patent Filings' },
       { type: 'icon', icon: CheckCircle2, iconColor: 'text-emerald-400', text: 'SOC 2 Type 1 Attested' }
     ],

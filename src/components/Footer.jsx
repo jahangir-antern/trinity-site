@@ -87,7 +87,7 @@ export default function Footer({ onNavigate, onRequestDemo }) {
                   onClick={(e) => handleSectionClick(e, '#products')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  CosmosOne™
+                  CosmosOne
                 </a>
                 <span className="block text-[11px] text-slate-500">First-Party Property</span>
               </li>
@@ -97,7 +97,7 @@ export default function Footer({ onNavigate, onRequestDemo }) {
                   onClick={(e) => handleSectionClick(e, '#products')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  CosmosNexus™
+                  CosmosNexus
                 </a>
                 <span className="block text-[11px] text-slate-500">Construction Defect</span>
               </li>
@@ -107,7 +107,7 @@ export default function Footer({ onNavigate, onRequestDemo }) {
                   onClick={(e) => handleSectionClick(e, '#products')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  CosmosHelios™
+                  CosmosHelios
                 </a>
                 <span className="block text-[11px] text-slate-500">Intake & Conflicts</span>
               </li>
@@ -117,7 +117,7 @@ export default function Footer({ onNavigate, onRequestDemo }) {
                   onClick={(e) => handleSectionClick(e, '#products')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Cosmos Helix™
+                  Cosmos Helix
                 </a>
                 <span className="block text-[11px] text-slate-500">Nursing Home & Medical</span>
               </li>
@@ -127,7 +127,7 @@ export default function Footer({ onNavigate, onRequestDemo }) {
                   onClick={(e) => handleSectionClick(e, '#products')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Cosmos Gravity™
+                  Cosmos Gravity
                 </a>
                 <span className="block text-[11px] text-slate-500">Audit & Compliance</span>
               </li>
@@ -227,7 +227,7 @@ export default function Footer({ onNavigate, onRequestDemo }) {
                   onClick={(e) => handleSectionClick(e, '#differentiation')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Cortex, Polaris & Argus™
+                  Cortex, Polaris & Argus
                 </a>
               </li>
               <li>

@@ -1,11 +1,11 @@
 import React from 'react';
-import { 
-  ArrowRight, 
-  FileText, 
-  Scale, 
-  Building2, 
-  Check, 
-  UserCheck 
+import {
+  ArrowRight,
+  FileText,
+  Scale,
+  Building2,
+  Check,
+  UserCheck
 } from 'lucide-react';
 import { productsData } from '../data/homepageData';
 
@@ -15,7 +15,7 @@ export default function ProductEcosystem({ onRequestDemo }) {
   return (
     <section id="products" className="py-24 lg:py-32 bg-white border-y border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-20 space-y-3">
           <div className="badge-blue">
@@ -30,11 +30,11 @@ export default function ProductEcosystem({ onRequestDemo }) {
         </div>
 
         {/* ============================================================ */}
-        {/* PRODUCT 01: COSMOS ONE™                                      */}
+        {/* PRODUCT 01: COSMOS ONE                                       */}
         {/* ============================================================ */}
         <div id="cosmos-one" className="mb-24 lg:mb-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
+
             {/* Left Column: Clean Typography (No Outer Box) */}
             <div className="lg:col-span-5 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 text-trinity-deepBlue text-xs font-bold tracking-wide uppercase">
@@ -85,10 +85,10 @@ export default function ProductEcosystem({ onRequestDemo }) {
 
               <div className="pt-2">
                 <button
-                  onClick={() => onRequestDemo("CosmosOne™ (First-Party Property)")}
+                  onClick={() => onRequestDemo("CosmosOne (First-Party Property)")}
                   className="btn-primary py-3 px-7 text-sm font-semibold"
                 >
-                  <span>Request CosmosOne™ Demo</span>
+                  <span>Request CosmosOne Demo</span>
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </button>
               </div>
@@ -97,7 +97,7 @@ export default function ProductEcosystem({ onRequestDemo }) {
             {/* Right Column: Clean Enterprise Interface */}
             <div className="lg:col-span-7">
               <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-8 space-y-5">
-                
+
                 {/* Header */}
                 <div className="flex items-center justify-between pb-4 border-b border-slate-200">
                   <div>
@@ -158,12 +158,12 @@ export default function ProductEcosystem({ onRequestDemo }) {
         </div>
 
         {/* ============================================================ */}
-        {/* PRODUCT 02: COSMOS NEXUS™                                    */}
+        {/* PRODUCT 02: COSMOS NEXUS                                     */}
         {/* ============================================================ */}
         <div id="cosmos-nexus">
           <div className="bg-[#071120] text-white rounded-3xl p-8 lg:p-14 shadow-2xl relative overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
-              
+
               {/* Left Column */}
               <div className="lg:col-span-5 space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/15 border border-amber-500/30 text-trinity-brightGold text-xs font-bold tracking-wide uppercase">
@@ -218,10 +218,10 @@ export default function ProductEcosystem({ onRequestDemo }) {
 
                 <div className="pt-2">
                   <button
-                    onClick={() => onRequestDemo("CosmosNexus™ (Construction Defect)")}
+                    onClick={() => onRequestDemo("CosmosNexus (Construction Defect)")}
                     className="btn-primary py-3 px-7 text-sm font-semibold bg-trinity-blue hover:bg-trinity-deepBlue"
                   >
-                    <span>Request CosmosNexus™ Demo</span>
+                    <span>Request CosmosNexus Demo</span>
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </button>
                 </div>
@@ -230,7 +230,7 @@ export default function ProductEcosystem({ onRequestDemo }) {
               {/* Right Column: Clean Scope Isolation & Sign-Off */}
               <div className="lg:col-span-7">
                 <div className="bg-[#0A1426] rounded-2xl border border-[#1b2b48] p-6 sm:p-8 space-y-5">
-                  
+
                   {/* Clean Header & Exposure Comparison */}
                   <div className="pb-4 border-b border-[#182744] flex items-center justify-between">
                     <div>

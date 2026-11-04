@@ -44,41 +44,41 @@ export const products = [
   {
     id: "cosmos-one",
     badge: "FIRST-PARTY PROPERTY",
-    name: "CosmosOne™",
+    name: "CosmosOne",
     description: "Carries a first-party property matter end to end, from first notice of loss through the statutory clock and into defense, with every assertion traced to the record.",
-    cta: "Explore CosmosOne™ →",
+    cta: "Explore CosmosOne →",
     href: "#products"
   },
   {
     id: "cosmos-nexus",
     badge: "CONSTRUCTION DEFECT DEFENSE",
-    name: "CosmosNexus™",
+    name: "CosmosNexus",
     description: "Reads an entire defect file at terabyte scale and produces a defense position a partner can sign. Quantified exposure, liability caps, the apportionment position, and where the opposing expert's theory breaks down.",
-    cta: "Explore CosmosNexus™ →",
+    cta: "Explore CosmosNexus →",
     href: "#products"
   },
   {
     id: "cosmos-helios",
     badge: "INTAKE & CONFLICTS",
-    name: "CosmosHelios™",
+    name: "CosmosHelios",
     description: "Clears a new matter by reasoning about relationships rather than matching names, so conflicts are found rather than searched for.",
-    cta: "Explore CosmosHelios™ →",
+    cta: "Explore CosmosHelios →",
     href: "#products"
   },
   {
     id: "cosmos-helix",
     badge: "NURSING HOME & ASSISTED LIVING",
-    name: "Cosmos Helix™",
+    name: "Cosmos Helix",
     description: "Turns scanned and handwritten medical files into source-linked chronologies, with gaps in treatment and gaps in records surfaced rather than missed.",
-    cta: "Explore Cosmos Helix™ →",
+    cta: "Explore Cosmos Helix →",
     href: "#products"
   },
   {
     id: "cosmos-gravity",
     badge: "AUDIT & COMPLIANCE",
-    name: "Cosmos Gravity™",
+    name: "Cosmos Gravity",
     description: "Encodes counsel guidelines as enforced rules, so compliance is proven on demand rather than audited after the fact.",
-    cta: "Explore Cosmos Gravity™ →",
+    cta: "Explore Cosmos Gravity →",
     href: "#products"
   }
 ];
@@ -136,7 +136,7 @@ export const recordEngines = [
     description: "Processes job-site photography, defect inspections, architectural blueprints, and physical property evidence."
   },
   {
-    name: "Argus™",
+    name: "Argus",
     role: "Adversarial Verification",
     description: "Adversarially re-checks both written and photographic records to isolate contradictions before anything reaches an attorney."
   }
@@ -175,7 +175,7 @@ export const approachSteps = [
   {
     step: "03",
     title: "Adversarial Verification",
-    description: "Argus™ adversarially re-checks the record, testing opposing expert theories and citing primary authority for every assertion."
+    description: "Argus adversarially re-checks the record, testing opposing expert theories and citing primary authority for every assertion."
   },
   {
     step: "04",
@@ -245,13 +245,13 @@ export const insights = [
   {
     category: "Claims & Coverage",
     title: "First-Party Property Defense: Tracing Every Assertion from First Notice of Loss",
-    description: "Navigating statutory clocks and claim documentation at enterprise scale with CosmosOne™.",
+    description: "Navigating statutory clocks and claim documentation at enterprise scale with CosmosOne.",
     readTime: "6 min read"
   },
   {
     category: "Construction Defect",
     title: "Multi-Party Construction Defect Defense: Decoupling Terabyte-Scale Files",
-    description: "How CosmosNexus™ isolates exposure caps, trade allocations, and expert deposition breakdowns.",
+    description: "How CosmosNexus isolates exposure caps, trade allocations, and expert deposition breakdowns.",
     readTime: "4 min read"
   }
 ];

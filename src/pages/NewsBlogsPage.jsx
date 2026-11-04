@@ -55,7 +55,7 @@ const newsAndBlogsData = [
     readTime: '5 min read',
     author: 'Intellectual Property & R&D',
     featured: false,
-    excerpt: 'Our ten USPTO provisional patent filings protect core technological innovations including adversarial verification via Argus™ and deterministic citation linking.',
+    excerpt: 'Our ten USPTO provisional patent filings protect core technological innovations including adversarial verification via Argus and deterministic citation linking.',
     content: [
       'To date, Trinity AI Boston has filed ten provisional patent applications with the United States Patent and Trademark Office (USPTO).',
       'The patents protect novel computational methods for multi-modal evidence indexing, adversarial fact-checking against contradictory record entries, and non-retraining tenant isolation algorithms.'
@@ -314,7 +314,7 @@ export default function NewsBlogsPage({ onNavigate, onRequestDemo }) {
                     Schedule an Executive or Engineering Briefing
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Interested in reviewing live benchmark data, single-tenant deployment topology, or our patent-pending Argus™ adversarial verification pipeline?
+                    Interested in reviewing live benchmark data, single-tenant deployment topology, or our patent-pending Argus adversarial verification pipeline?
                   </p>
                   <button
                     type="button"

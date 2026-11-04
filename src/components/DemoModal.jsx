@@ -256,20 +256,20 @@ export default function DemoModal({ isOpen, onClose, preselectedProduct = "The C
                     >
                       {formData.product && ![
                         "The Cosmos Platform",
-                        "CosmosOne™ (First-Party Property)",
-                        "CosmosNexus™ (Construction Defect)",
-                        "CosmosHelios™ (Intake & Conflicts)",
-                        "Cosmos Helix™ (Nursing Home & Medical)",
-                        "Cosmos Gravity™ (Audit & Compliance)"
+                        "CosmosOne (First-Party Property)",
+                        "CosmosNexus (Construction Defect)",
+                        "CosmosHelios (Intake & Conflicts)",
+                        "Cosmos Helix (Nursing Home & Medical)",
+                        "Cosmos Gravity (Audit & Compliance)"
                       ].includes(formData.product) && (
                         <option value={formData.product}>{formData.product}</option>
                       )}
                       <option value="The Cosmos Platform">The Cosmos Platform (Enterprise Overview)</option>
-                      <option value="CosmosOne™ (First-Party Property)">CosmosOne™ (First-Party Property)</option>
-                      <option value="CosmosNexus™ (Construction Defect)">CosmosNexus™ (Construction Defect)</option>
-                      <option value="CosmosHelios™ (Intake & Conflicts)">CosmosHelios™ (Intake & Conflicts)</option>
-                      <option value="Cosmos Helix™ (Nursing Home & Medical)">Cosmos Helix™ (Nursing Home & Medical)</option>
-                      <option value="Cosmos Gravity™ (Audit & Compliance)">Cosmos Gravity™ (Audit & Compliance)</option>
+                      <option value="CosmosOne (First-Party Property)">CosmosOne (First-Party Property)</option>
+                      <option value="CosmosNexus (Construction Defect)">CosmosNexus (Construction Defect)</option>
+                      <option value="CosmosHelios (Intake & Conflicts)">CosmosHelios (Intake & Conflicts)</option>
+                      <option value="Cosmos Helix (Nursing Home & Medical)">Cosmos Helix (Nursing Home & Medical)</option>
+                      <option value="Cosmos Gravity (Audit & Compliance)">Cosmos Gravity (Audit & Compliance)</option>
                       <option value="Executive Briefing">Executive Briefing / Platform Overview</option>
                       <option value="General Inquiry">General Enterprise Inquiry</option>
                     </select>

@@ -138,7 +138,7 @@ export default function ProductsOverview({ onRequestDemo }) {
             <div className="p-6 rounded-xl bg-white/[0.04] border border-white/10 space-y-3">
               <div className="flex items-center gap-2 text-amber-300">
                 <ShieldAlert className="w-5 h-5" />
-                <span className="font-bold font-display text-lg text-white">Argus™</span>
+                <span className="font-bold font-display text-lg text-white">Argus</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
                 Adversarially re-checks both records before anything reaches an attorney, isolating contradictions and stress-testing opposing expert theories.
