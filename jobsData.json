@@ -1,5 +1,72 @@
 [
   {
+    "id": "senior-ai-engineer-llm",
+    "title": "Senior AI Engineer (LLM)",
+    "department": "Cosmos Platform",
+    "location": "India",
+    "type": "Full-Time",
+    "experience": "5+ Years",
+    "postedDate": "October 2026",
+    "badge": "Document Intelligence & RAG",
+    "highlight": "Architect document intelligence RAG pipelines, multimodal vision extraction, and zero-hallucination citation engines for high-stakes enterprise documents",
+    "overview": "Trinity AI Boston builds AI products for professionals who work with large volumes of complex documents, starting with legal teams. Our platform ingests long, messy case files, extracts the facts that matter, and backs every answer with a citation to the exact source text. A human expert reviews and approves the output before it is used.\n\nWe are hiring a Senior AI Engineer to help architect and build our document intelligence engine. This is not a standard data science role. It is a systems engineering role focused on Retrieval-Augmented Generation (RAG), document understanding, and production reliability.\n\nThe ideal candidate is a builder who can design end-to-end pipelines that ingest messy PDFs (100+ pages), scanned records, and audio; extract specific data points with high precision; and provide audit-ready citations that link each answer back to its source. You will design model-agnostic components so LLMs can be swapped as the field moves, fine-tune open-weight models where they beat general-purpose ones, build guardrails and evaluation frameworks that measure accuracy against expert-reviewed data, and design human-in-the-loop and agentic workflows that keep experts in control. You will work alongside our AI Lead Engineer, mentor other engineers, and collaborate closely with our full-stack and DevSecOps engineers.",
+    "stack": {
+      "Backend & APIs": "Python, FastAPI, Pydantic, Structured Outputs",
+      "Vector & Retrieval": "Qdrant, Semantic & Parent-Child Chunking, Hybrid Search, Re-ranking",
+      "Multimodal & Vision": "Mistral OCR, LightOn, Layout Models, Vision-Capable LLMs",
+      "Audio & Speech": "Whisper, NVIDIA Parakeet (timestamped source linking)",
+      "Evaluation & Gating": "Ragas, TruLens, Gold-Standard Benchmark Suites",
+      "Models & Adaptation": "Claude, GPT, Gemini, Open-Weight (Llama, Qwen, Mistral), LoRA/PEFT, vLLM, Triton"
+    },
+    "responsibilities": [
+      "AI Systems: Architect the RAG pipeline — design and build the end-to-end system for document ingestion, chunking, retrieval, and generation in Python.",
+      "AI Systems: Intelligent Document Processing — use modern multimodal and vision pipelines (e.g., OCR models such as Mistral OCR or LightOn, layout models, or vision-capable LLMs) to extract complex data from tables, forms, scanned pages, and handwriting. Map extracted text back to its exact location on the PDF for UI highlighting.",
+      "AI Systems: Minimize hallucination — implement validation layers, guardrails, and confidence scoring so the system does not invent data.",
+      "AI Systems: Design human-in-the-loop workflows — build review gates where experts approve, correct, or reject AI output, and capture that feedback to improve the system.",
+      "AI Systems: Process audio and video — build speech-to-text pipelines (e.g., Whisper, NVIDIA Parakeet) for recordings such as interviews and depositions, with timestamps that link back to the source.",
+      "AI Systems: Build agentic workflows — automate multi-step tasks (gathering, extracting, cross-checking, drafting) that run ahead of human approval.",
+      "AI Systems: Build evaluation frameworks — create automated testing pipelines (Ragas, TruLens, or custom) to measure and improve accuracy against expert-reviewed gold-standard datasets.",
+      "AI Systems: Design for model independence — build LLM-agnostic interfaces so models and providers can be swapped or combined without rewriting the pipeline.",
+      "AI Systems: Fine-tune models — train and adapt open-weight models (e.g., LoRA/PEFT) on domain data where they outperform general-purpose models on accuracy or cost.",
+      "AI Systems: Optimize for scale and cost — select the right mix of models, such as frontier models (Claude, GPT, Gemini) for reasoning and smaller or fine-tuned open-weight models for extraction.",
+      "AI Systems: Protect client data — keep each customer's data, and any customer-specific models, fully isolated.",
+      "Leadership: Contribute to AI architecture and technical direction with the AI Lead Engineer.",
+      "Leadership: Mentor AI engineers and help set coding, review, and evaluation standards.",
+      "Leadership: Work with product and domain experts to turn real workflows into measurable AI requirements."
+    ],
+    "requirements": [
+      "5+ years of software engineering experience with a strong focus on Python, including production backend services (FastAPI or similar) and structured outputs with Pydantic.",
+      "Production LLM experience: has shipped LLM applications to production, including prompt design, tool calling, and structured outputs.",
+      "Hands-on experience with a vector database in production (Qdrant preferred).",
+      "Advanced RAG techniques: deep understanding of chunking strategies (semantic chunking, parent-child retrieval), hybrid search (keyword plus semantic), and re-ranking.",
+      "Vision and layout models: experience with models that understand document structure (tables, forms, checkboxes), not just plain text.",
+      "Evaluation mindset: has built test sets and metrics to measure LLM output quality, not just demos.",
+      "Experience leading or mentoring engineers."
+    ],
+    "preferredQualifications": [
+      "Start-up experience.",
+      "Domain experience with document-heavy, regulated work: legal, insurance, healthcare, or financial services.",
+      "Fine-tuning open-weight models (e.g., Llama, Qwen, Mistral) on custom datasets, including LoRA/PEFT.",
+      "Self-hosting and serving open-weight OCR, speech, or language models on GPUs (e.g., vLLM, Triton).",
+      "AWS experience (S3, SQS, RDS), asynchronous job processing, and containerized deployments.",
+      "Experience building human-in-the-loop or active-learning systems."
+    ],
+    "whyThisRole": [
+      "Build core AI capabilities for a product used on real, high-stakes professional work.",
+      "Hard, interesting problems: long documents, precise extraction, and citations that must hold up to expert scrutiny."
+    ],
+    "skills": [
+      "Python",
+      "RAG & Ingestion",
+      "LLMs & Agentic",
+      "Qdrant",
+      "Multimodal OCR & Vision",
+      "FastAPI & Pydantic",
+      "Evaluation (Ragas)",
+      "Model Fine-Tuning"
+    ]
+  },
+  {
     "id": "senior-fullstack-engineer",
     "title": "Senior Full Stack Engineer (React / Python)",
     "department": "Engineering",
