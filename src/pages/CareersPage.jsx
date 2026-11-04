@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import FinalCTA from '../components/FinalCTA';
 import careersHeroBg from '../assets/hero-intelligence.jpg';
 import initialJobsData from '../data/jobsData.json';
+import { sendFormViaEmailJS } from '../services/emailjsService';
 import { 
   Briefcase, 
   MapPin, 
@@ -108,54 +109,20 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
     e.preventDefault();
 
     const payload = {
-      Form: 'Careers Job Application',
-      RoleApplied: activeJobModal?.title,
-      Department: activeJobModal?.department,
-      ApplicantName: formData.name,
-      ApplicantEmail: formData.email,
-      Phone: formData.phone || 'N/A',
-      LinkedIn: formData.linkedin || 'N/A',
-      CoverNote: formData.coverNote || 'N/A',
-      Recipient: 'jahangirxl@gmail.com',
-      Timestamp: new Date().toISOString()
+      roleApplied: activeJobModal?.title,
+      department: activeJobModal?.department,
+      applicantName: formData.name,
+      name: formData.name,
+      applicantEmail: formData.email,
+      email: formData.email,
+      phone: formData.phone || 'N/A',
+      linkedin: formData.linkedin || 'N/A',
+      portfolio: formData.portfolio || 'N/A',
+      coverNote: formData.coverNote || 'N/A',
+      subject: `Job Application: ${activeJobModal?.title || 'Open Role'} - ${formData.name}`
     };
 
-    // Primary: ShipMyForm instant serverless endpoint
-    try {
-      await fetch('https://shipmyform.com/to/jahangirxl@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
-    } catch (err) {
-      console.warn('ShipMyForm submission warning:', err);
-    }
-
-    // Secondary: FormSubmit with 3s timeout
-    try {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 3000);
-      await fetch('https://formsubmit.co/ajax/jahangirxl@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        signal: controller.signal,
-        body: JSON.stringify({
-          _subject: `Job Application: ${activeJobModal?.title || 'Open Role'} - ${formData.name}`,
-          _captcha: 'false',
-          _template: 'table',
-          ...payload
-        })
-      });
-      clearTimeout(timer);
-    } catch (err) {
-      console.warn('Careers application submission notice:', err);
-    }
+    await sendFormViaEmailJS('Careers Job Application', payload);
 
     setApplySuccess(true);
   };

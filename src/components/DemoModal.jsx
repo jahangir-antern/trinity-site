@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, ShieldCheck, ArrowRight, Building, Mail, User, Briefcase, FileText, Send } from 'lucide-react';
 import trinityLogo from '../assets/trinity-logo.png';
+import { sendFormViaEmailJS } from '../services/emailjsService';
 
 export default function DemoModal({ isOpen, onClose, preselectedProduct = "The Cosmos Platform" }) {
   const [formData, setFormData] = useState({
@@ -45,53 +46,18 @@ export default function DemoModal({ isOpen, onClose, preselectedProduct = "The C
     setIsSubmitting(true);
 
     const payload = {
-      Form: 'Executive Product Demo Request',
-      FullName: formData.fullName,
-      WorkEmail: formData.email,
-      Organization: formData.organization,
-      Role: formData.role || 'Not specified',
-      PlatformOfInterest: formData.product,
-      UseCaseBrief: formData.useCase || 'N/A',
-      Recipient: 'jahangirxl@gmail.com',
-      Timestamp: new Date().toISOString()
+      fullName: formData.fullName,
+      email: formData.email,
+      workEmail: formData.email,
+      organization: formData.organization,
+      role: formData.role || 'Not specified',
+      product: formData.product,
+      platformOfInterest: formData.product,
+      useCase: formData.useCase || 'N/A',
+      subject: `Executive Product Demo Request - ${formData.fullName} (${formData.organization || 'General'})`
     };
 
-    // Primary: ShipMyForm instant serverless endpoint (forwards directly to jahangirxl@gmail.com)
-    try {
-      await fetch('https://shipmyform.com/to/jahangirxl@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
-    } catch (err) {
-      console.warn('ShipMyForm submission warning:', err);
-    }
-
-    // Secondary: FormSubmit with 3s timeout
-    try {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 3000);
-      await fetch('https://formsubmit.co/ajax/jahangirxl@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        signal: controller.signal,
-        body: JSON.stringify({
-          _subject: `Executive Product Demo Request - ${formData.fullName} (${formData.organization || 'General'})`,
-          _captcha: 'false',
-          _template: 'table',
-          ...payload
-        })
-      });
-      clearTimeout(timer);
-    } catch (err) {
-      console.warn('FormSubmit background status:', err);
-    }
+    await sendFormViaEmailJS('Executive Product Demo Request', payload);
 
     setIsSubmitting(false);
     setSubmitted(true);

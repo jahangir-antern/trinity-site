@@ -17,6 +17,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { companyLocations } from '../data/homepageData';
 import heroBg from '../assets/hero-legal-executive.jpg';
+import { sendFormViaEmailJS } from '../services/emailjsService';
 
 export default function ContactUsPage({ onNavigate, onRequestDemo }) {
   const [formData, setFormData] = useState({
@@ -59,53 +60,17 @@ export default function ContactUsPage({ onNavigate, onRequestDemo }) {
     setFormStatus('submitting');
 
     const payload = {
-      Form: 'Direct Briefing Inquiry',
-      FullName: formData.fullName,
-      WorkEmail: formData.workEmail,
-      Organization: formData.organization || 'N/A',
-      Phone: formData.phone || 'N/A',
-      InquiryScope: formData.inquiryType,
-      Message: formData.message,
-      Recipient: 'jahangirxl@gmail.com',
-      Timestamp: new Date().toISOString()
+      fullName: formData.fullName,
+      email: formData.workEmail,
+      workEmail: formData.workEmail,
+      organization: formData.organization || 'N/A',
+      phone: formData.phone || 'N/A',
+      inquiryType: formData.inquiryType,
+      message: formData.message,
+      subject: `New Trinity AI Inquiry: ${formData.inquiryType || 'General'} - ${formData.fullName}`
     };
 
-    // Primary: ShipMyForm instant serverless endpoint (forwards directly to jahangirxl@gmail.com)
-    try {
-      await fetch('https://shipmyform.com/to/jahangirxl@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
-    } catch (err) {
-      console.warn('ShipMyForm submission notice:', err);
-    }
-
-    // Secondary: FormSubmit with 3s timeout
-    try {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 3000);
-      await fetch('https://formsubmit.co/ajax/jahangirxl@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        signal: controller.signal,
-        body: JSON.stringify({
-          _subject: `New Trinity AI Inquiry: ${formData.inquiryType || 'General'} - ${formData.fullName}`,
-          _captcha: 'false',
-          _template: 'table',
-          ...payload
-        })
-      });
-      clearTimeout(timer);
-    } catch (err) {
-      console.warn('FormSubmit timeout/notice:', err);
-    }
+    await sendFormViaEmailJS('Direct Briefing Inquiry', payload);
 
     setFormStatus('submitted');
   };
