@@ -14,6 +14,23 @@ import {
 
 const newsAndBlogsData = [
   {
+    id: 'partnerships-nvidia-aws',
+    category: 'Company News',
+    badge: 'Strategic Partnership',
+    title: 'Trinity AI Boston Announces Strategic Partnerships with NVIDIA and AWS',
+    subtitle: 'Strengthening capabilities to develop and deliver next-generation AI solutions, accelerate adoption, and drive digital transformation.',
+    date: 'November 4, 2026',
+    readTime: '3 min read',
+    author: 'Corporate Communications & Executive Team',
+    featured: true,
+    excerpt: 'Trinity AI Boston is pleased to announce strategic partnerships with NVIDIA and Amazon Web Services (AWS), strengthening our capabilities to develop and deliver next-generation AI solutions.',
+    content: [
+      'Trinity AI Boston is pleased to announce strategic partnerships with NVIDIA and Amazon Web Services (AWS), strengthening our capabilities to develop and deliver next-generation AI solutions. These partnerships represent an important step in our commitment to helping businesses accelerate AI adoption, build intelligent applications, and drive digital transformation.',
+      'Through these strategic alliances, Trinity AI Boston leverages NVIDIA’s accelerated computing architecture and advanced AI enterprise frameworks alongside AWS’s secure, scalable cloud infrastructure. This collaboration reinforces our engineering capacity across multimodal document reasoning, low-latency inference pipelines, and single-tenant enterprise deployments.',
+      'Together with NVIDIA and AWS, Trinity AI Boston continues to push the boundaries of deterministic, high-consequence AI architectures—delivering verified accuracy and robust compliance for enterprise operations.'
+    ]
+  },
+  {
     id: 'soc2-type1-attestation',
     category: 'Company News',
     badge: 'Announcement',
