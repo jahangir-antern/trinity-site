@@ -263,7 +263,7 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
             </div>
 
             {/* Job Listings Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {jobsList.map((job) => (
                 <div
                   key={job.id}
@@ -283,7 +283,7 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
                       <h3 className="text-xl sm:text-2xl font-bold font-display text-trinity-ink group-hover:text-trinity-blue transition-colors">
                         {job.title}
                       </h3>
-                      <div className="flex flex-wrap items-center gap-4 mt-2 text-xs font-mono text-slate-500">
+                      <div className="flex flex-wrap items-center gap-3 mt-2 text-xs font-mono text-slate-500">
                         <span className="flex items-center gap-1">
                           <MapPin className="w-3.5 h-3.5 text-slate-400" />
                           {job.location}
@@ -293,6 +293,12 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
                           <Clock className="w-3.5 h-3.5 text-slate-400" />
                           {job.experience}
                         </span>
+                        {job.postedDate && (
+                          <>
+                            <span>•</span>
+                            <span className="text-slate-400">{job.postedDate}</span>
+                          </>
+                        )}
                       </div>
                     </div>
 
@@ -506,6 +512,12 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
                         <span>{activeJobModal.type}</span>
                         <span>•</span>
                         <span>Exp: {activeJobModal.experience}</span>
+                        {activeJobModal.postedDate && (
+                          <>
+                            <span>•</span>
+                            <span className="text-slate-500 font-medium">{activeJobModal.postedDate}</span>
+                          </>
+                        )}
                       </div>
                       <p className="text-sm text-trinity-ink font-medium leading-relaxed whitespace-pre-line">
                         {activeJobModal.overview}
@@ -547,7 +559,7 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
                     {/* Requirements */}
                     <div className="space-y-3">
                       <h4 className="text-sm font-mono uppercase tracking-wider font-bold text-slate-400 border-b border-slate-100 pb-2">
-                        Qualifications & Experience
+                        Required Qualifications
                       </h4>
                       <ul className="space-y-2.5 text-sm text-trinity-slate">
                         {activeJobModal.requirements.map((req, qIdx) => (
@@ -558,6 +570,40 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
                         ))}
                       </ul>
                     </div>
+
+                    {/* Preferred Qualifications (if available) */}
+                    {activeJobModal.preferredQualifications && activeJobModal.preferredQualifications.length > 0 && (
+                      <div className="space-y-3">
+                        <h4 className="text-sm font-mono uppercase tracking-wider font-bold text-slate-400 border-b border-slate-100 pb-2">
+                          Preferred Qualifications
+                        </h4>
+                        <ul className="space-y-2.5 text-sm text-trinity-slate">
+                          {activeJobModal.preferredQualifications.map((pref, pIdx) => (
+                            <li key={pIdx} className="flex items-start gap-2.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 mt-2" />
+                              <span className="leading-relaxed">{pref}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Why This Role (if available) */}
+                    {activeJobModal.whyThisRole && activeJobModal.whyThisRole.length > 0 && (
+                      <div className="space-y-3">
+                        <h4 className="text-sm font-mono uppercase tracking-wider font-bold text-slate-400 border-b border-slate-100 pb-2">
+                          Why This Role
+                        </h4>
+                        <div className="p-4 rounded-xl bg-blue-50/70 border border-blue-200/80 space-y-2.5">
+                          {activeJobModal.whyThisRole.map((item, wIdx) => (
+                            <div key={wIdx} className="flex items-start gap-2.5 text-sm text-trinity-ink">
+                              <CheckCircle2 className="w-4 h-4 text-trinity-blue shrink-0 mt-0.5" />
+                              <span className="leading-relaxed font-medium">{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Application Form */}
                     <div className="space-y-4 pt-4 border-t border-slate-200">
