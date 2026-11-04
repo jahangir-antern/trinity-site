@@ -59,6 +59,7 @@ export default function ContactUsPage({ onNavigate, onRequestDemo }) {
     e.preventDefault();
     setFormStatus('submitting');
 
+    const orgText = formData.organization ? ` (${formData.organization})` : '';
     const payload = {
       fullName: formData.fullName,
       email: formData.workEmail,
@@ -67,7 +68,7 @@ export default function ContactUsPage({ onNavigate, onRequestDemo }) {
       phone: formData.phone || 'N/A',
       inquiryType: formData.inquiryType,
       message: formData.message,
-      subject: `New Trinity AI Inquiry: ${formData.inquiryType || 'General'} - ${formData.fullName}`
+      subject: `[Inquiry Lead: ${formData.fullName}${orgText}] ${formData.inquiryType || 'General'}`
     };
 
     await sendFormViaEmailJS('Direct Briefing Inquiry', payload);

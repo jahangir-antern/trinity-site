@@ -45,6 +45,7 @@ export default function DemoModal({ isOpen, onClose, preselectedProduct = "The C
     e.preventDefault();
     setIsSubmitting(true);
 
+    const orgText = formData.organization ? ` (${formData.organization})` : '';
     const payload = {
       fullName: formData.fullName,
       email: formData.email,
@@ -54,7 +55,7 @@ export default function DemoModal({ isOpen, onClose, preselectedProduct = "The C
       product: formData.product,
       platformOfInterest: formData.product,
       useCase: formData.useCase || 'N/A',
-      subject: `Executive Product Demo Request - ${formData.fullName} (${formData.organization || 'General'})`
+      subject: `[Demo Lead: ${formData.fullName}${orgText}] ${formData.product}`
     };
 
     await sendFormViaEmailJS('Executive Product Demo Request', payload);

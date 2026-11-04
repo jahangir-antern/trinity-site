@@ -119,7 +119,7 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
       linkedin: formData.linkedin || 'N/A',
       portfolio: formData.portfolio || 'N/A',
       coverNote: formData.coverNote || 'N/A',
-      subject: `Job Application: ${activeJobModal?.title || 'Open Role'} - ${formData.name}`
+      subject: `[Applicant: ${formData.name}] ${activeJobModal?.title || 'Open Role'}`
     };
 
     await sendFormViaEmailJS('Careers Job Application', payload);

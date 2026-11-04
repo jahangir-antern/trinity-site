@@ -29,15 +29,21 @@ export async function sendFormViaEmailJS(formType, data) {
   const senderEmail = data.email || data.workEmail || data.applicantEmail || '';
   const subject = data.subject || data._subject || `[Trinity AI] ${formType} - ${senderName}`;
 
+  const orgSuffix = data.organization ? ` (${data.organization})` : '';
+  const displayName = `${senderName}${orgSuffix} [Trinity AI]`;
+
   const templateParams = {
-    name: senderName,
-    from_name: senderName,
+    name: displayName,
+    from_name: displayName,
     fullName: senderName,
+    sender_name: senderName,
+    client_name: senderName,
+    applicant_name: senderName,
     email: senderEmail,
     from_email: senderEmail,
     reply_to: senderEmail,
     workEmail: senderEmail,
-    to_name: 'Trinity AI Boston (Admin)',
+    to_name: 'Trinity AI Boston',
     to_email: recipient,
     recipient_email: recipient,
     subject: subject,
