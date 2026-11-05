@@ -87,7 +87,7 @@ export const leadershipTeam = [
     transformOrigin: 'center 20%',
     experience: 'Senior Architect',
     highlight: 'Issued AI Patents & High-Consequence Gated Decision Systems',
-    bio: 'Sharoon Saxena is a senior AI architect specializing in deploying AI systems for high-consequence, heavily regulated environments. His work has transformed legal research, criminal background verification, and financial reconciliation—turning manual workflows into rapid insight pipelines, accelerating record resolution for high-risk safety assessments, and strengthening transaction monitoring for large-scale breach events. He holds several issued patents defining new standards for data quality and automated decision-making.',
+    bio: 'Sharoon Saxena is a senior AI architect specializing in deploying AI systems for high-consequence, heavily regulated environments. His work has transformed legal research, criminal background verification, and financial reconciliation, turning manual workflows into rapid insight pipelines, accelerating record resolution for high-risk safety assessments, and strengthening transaction monitoring for large-scale breach events. He holds several issued patents defining new standards for data quality and automated decision-making.',
     skills: ['Legal AI Models', 'Patent Author', 'Gated Pipelines', 'High-Consequence Systems']
   },
   {

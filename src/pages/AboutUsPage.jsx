@@ -3,11 +3,11 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FinalCTA from '../components/FinalCTA';
 import aboutUsBg from '../assets/about-us.jpg';
-import { 
-  Scale, 
-  FileCheck, 
-  MapPin, 
-  ArrowRight, 
+import {
+  Scale,
+  FileCheck,
+  MapPin,
+  ArrowRight,
   Lock,
   Building2,
   Users
@@ -21,41 +21,41 @@ export default function AboutUsPage({ onNavigate, onRequestDemo }) {
 
   return (
     <div className="min-h-screen bg-trinity-canvas text-trinity-ink flex flex-col font-sans selection:bg-trinity-blue selection:text-white">
-      
+
       {/* Sticky Enterprise Header */}
-      <Header 
-        onNavigate={onNavigate} 
-        onRequestDemo={onRequestDemo} 
-        currentPage="about" 
+      <Header
+        onNavigate={onNavigate}
+        onRequestDemo={onRequestDemo}
+        currentPage="about"
       />
 
       <main className="flex-grow">
-        
+
         {/* =========================================================================
             ABOUT US HERO: CINEMATIC PURPOSE-BUILT STATEMENT WITH FIXED PARALLAX
             ========================================================================= */}
         <section className="relative w-full pt-32 pb-20 md:pt-36 md:pb-28 bg-[#050B16] text-white border-b border-[#182744] overflow-hidden select-none">
-          
+
           {/* =========================================================================
               FIXED PARALLAX BACKGROUND: DISTINCT NEURAL INTELLIGENCE ARTWORK
               Hardware-accelerated viewport-pinned background while page scrolls
               ========================================================================= */}
-          <div 
+          <div
             className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
-            style={{ 
+            style={{
               clipPath: 'inset(0)',
               WebkitClipPath: 'inset(0)'
             }}
           >
             <div className="fixed inset-0 w-full h-full pointer-events-none">
-              <img 
-                src={aboutUsBg} 
-                alt="Trinity AI Boston Legal Analyst & Case Analysis Platform" 
+              <img
+                src={aboutUsBg}
+                alt="Trinity AI Boston Legal Analyst & Case Analysis Platform"
                 className="w-full h-full object-cover object-right lg:object-[82%_center] opacity-90 select-none"
               />
-              
+
               {/* Multi-Stop Vanishing Gradient: Preserves deep contrast on left for typography, reveals legal analyst & holographic scales on right */}
-              <div 
+              <div
                 className="absolute inset-0 pointer-events-none z-[1]"
                 style={{
                   background: 'linear-gradient(to right, #050B16 0%, #050B16 32%, rgba(5, 11, 22, 0.94) 48%, rgba(5, 11, 22, 0.60) 65%, rgba(5, 11, 22, 0.15) 82%, rgba(5, 11, 22, 0) 100%)'
@@ -77,10 +77,10 @@ export default function AboutUsPage({ onNavigate, onRequestDemo }) {
           </div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
-            
+
             {/* Breadcrumb Navigation */}
             <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
-              <button 
+              <button
                 type="button"
                 onClick={() => onNavigate && onNavigate('home')}
                 className="hover:text-trinity-lightBlue transition-colors cursor-pointer"
@@ -93,7 +93,7 @@ export default function AboutUsPage({ onNavigate, onRequestDemo }) {
 
             {/* Main Statement */}
             <div className="max-w-3xl space-y-5">
-              
+
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-950/40 border border-trinity-gold/50 text-xs sm:text-[13px] font-bold tracking-wider uppercase text-trinity-brightGold backdrop-blur-md shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-trinity-gold animate-pulse shrink-0" />
                 <span>ABOUT TRINITY AI BOSTON</span>
@@ -109,7 +109,7 @@ export default function AboutUsPage({ onNavigate, onRequestDemo }) {
               </h1>
 
               <p className="text-base sm:text-lg text-slate-200 font-normal leading-relaxed max-w-xl">
-                Purpose-built artificial intelligence for insurance defense litigation—where the output is signed by an attorney, filed with a court, and billed to a carrier that audits it.
+                Purpose-built artificial intelligence for insurance defense litigation, where the output is signed by an attorney, filed with a court, and billed to a carrier that audits it.
               </p>
 
               {/* Action Buttons */}
@@ -163,7 +163,7 @@ export default function AboutUsPage({ onNavigate, onRequestDemo }) {
             ========================================================================= */}
         <section className="py-20 lg:py-28 bg-white border-b border-trinity-border relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-            
+
             <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-wider bg-amber-50/95 text-trinity-deepGold border border-trinity-gold/50 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-trinity-gold shrink-0" />
@@ -178,7 +178,7 @@ export default function AboutUsPage({ onNavigate, onRequestDemo }) {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              
+
               <div className="p-8 rounded-2xl bg-trinity-canvas border border-trinity-border space-y-4">
                 <div className="w-11 h-11 rounded-xl bg-blue-50 text-trinity-blue border border-blue-100 flex items-center justify-center">
                   <Scale className="w-5 h-5" />
@@ -239,7 +239,7 @@ export default function AboutUsPage({ onNavigate, onRequestDemo }) {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
-              
+
               <div className="p-8 rounded-2xl bg-trinity-canvas border border-trinity-border space-y-3">
                 <div className="flex items-center gap-2 text-trinity-blue font-bold text-lg font-display">
                   <MapPin className="w-5 h-5" />

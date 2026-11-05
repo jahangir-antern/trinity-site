@@ -136,7 +136,7 @@ export default function ProductEcosystem({ onRequestDemo }) {
                 {/* Exposure Range */}
                 <div className="p-4 rounded-xl bg-white border border-slate-200/80 space-y-2">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold text-trinity-ink">Exposure Corridor: $4.8M — $6.2M</span>
+                    <span className="font-bold text-trinity-ink">Exposure Corridor: $4.8M ,  $6.2M</span>
                     <span className="text-xs font-mono font-bold text-trinity-blue">Baseline: $5.2M</span>
                   </div>
                   <div className="h-2 bg-slate-100 rounded-full overflow-hidden flex">

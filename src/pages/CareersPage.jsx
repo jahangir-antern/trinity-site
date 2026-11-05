@@ -5,13 +5,13 @@ import FinalCTA from '../components/FinalCTA';
 import careersHeroBg from '../assets/hero-intelligence.jpg';
 import initialJobsData from '../data/jobsData.json';
 import { sendFormViaEmailJS } from '../services/emailjsService';
-import { 
-  Briefcase, 
-  MapPin, 
-  Clock, 
-  ArrowRight, 
-  CheckCircle2, 
-  Laptop, 
+import {
+  Briefcase,
+  MapPin,
+  Clock,
+  ArrowRight,
+  CheckCircle2,
+  Laptop,
   X,
   Send,
   UploadCloud,
@@ -135,22 +135,22 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
               FIXED PARALLAX BACKGROUND: HIGH-TECH AI INTELLIGENCE ARTWORK
               Hardware-accelerated viewport-pinned background while page scrolls
               ========================================================================= */}
-          <div 
+          <div
             className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
-            style={{ 
+            style={{
               clipPath: 'inset(0)',
               WebkitClipPath: 'inset(0)'
             }}
           >
             <div className="fixed inset-0 w-full h-full pointer-events-none">
-              <img 
-                src={careersHeroBg} 
-                alt="Trinity AI Boston Engineering Intelligence" 
+              <img
+                src={careersHeroBg}
+                alt="Trinity AI Boston Engineering Intelligence"
                 className="w-full h-full object-cover object-right lg:object-[82%_center] opacity-85 select-none"
               />
-              
+
               {/* Multi-Stop Vanishing Gradient: Preserves deep contrast on left for typography, reveals engineering neural artwork on right */}
-              <div 
+              <div
                 className="absolute inset-0 pointer-events-none z-[1]"
                 style={{
                   background: 'linear-gradient(to right, #050B16 0%, #050B16 32%, rgba(5, 11, 22, 0.94) 48%, rgba(5, 11, 22, 0.60) 65%, rgba(5, 11, 22, 0.15) 82%, rgba(5, 11, 22, 0) 100%)'
@@ -201,7 +201,7 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
               </h1>
 
               <p className="text-base sm:text-lg text-slate-200 font-normal leading-relaxed max-w-2xl">
-                We are building verified, single-tenant AI systems for insurance defense litigation—where outputs are signed by trial attorneys, filed under penalty of perjury, and audited by Fortune 500 carriers.
+                We are building verified, single-tenant AI systems for insurance defense litigation, where outputs are signed by trial attorneys, filed under penalty of perjury, and audited by Fortune 500 carriers.
               </p>
 
               {/* Quick Culture Statistics */}
@@ -435,20 +435,20 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
           INTERACTIVE JOB DETAIL & APPLICATION MODAL (Slide-over drawer)
           ========================================================================= */}
       {activeJobModal && (
-        <div 
-          className="fixed inset-0 z-50 overflow-hidden" 
-          role="dialog" 
+        <div
+          className="fixed inset-0 z-50 overflow-hidden"
+          role="dialog"
           aria-modal="true"
         >
           {/* Backdrop Blur */}
-          <div 
+          <div
             onClick={handleCloseJob}
             className="fixed inset-0 bg-slate-950/60 backdrop-blur-xs transition-opacity duration-300 cursor-pointer"
           />
 
           <div className="fixed inset-y-0 right-0 max-w-full flex pl-6 sm:pl-10">
             <div className="w-screen max-w-2xl bg-white shadow-2xl flex flex-col z-50">
-              
+
               {/* Sticky Drawer Header */}
               <div className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-200 px-6 sm:px-8 py-5 flex items-center justify-between z-20 shrink-0">
                 <div className="space-y-0.5">

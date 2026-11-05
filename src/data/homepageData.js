@@ -165,7 +165,7 @@ export const approachSteps = [
   {
     step: "01",
     title: "Ingest & Extract",
-    description: "Cortex and Polaris ingest the entire record at terabyte scale—written dockets, medical files, contracts, and photographic evidence."
+    description: "Cortex and Polaris ingest the entire record at terabyte scale, written dockets, medical files, contracts, and photographic evidence."
   },
   {
     step: "02",

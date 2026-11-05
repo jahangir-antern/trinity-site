@@ -33,7 +33,7 @@ const slides = [
     headlineHighlight: 'Lens for Truth',
     headlineEnd: '',
     gradientClass: 'from-blue-300 via-trinity-lightBlue to-blue-100',
-    description: 'Astronomers did not invent the stars—they revealed them with a telescope. AI is our telescope. Trinity AI exists to decide where the world should point it.',
+    description: 'Astronomers did not invent the stars, they revealed them with a telescope. AI is our telescope. Trinity AI exists to decide where the world should point it.',
     primaryCta: {
       label: 'Explore Trinity AI Boston',
       href: '#positioning',

@@ -18,31 +18,31 @@ export default function VersionOne({ onNavigate, onRequestDemo }) {
       <Header onNavigate={onNavigate} onRequestDemo={onRequestDemo} currentPage="home" />
 
       <main className="flex-grow">
-        {/* SECTION 01 — DARK HERO (SLIDER) */}
+        {/* SECTION 01 ,  DARK HERO (SLIDER) */}
         <Hero onRequestDemo={onRequestDemo} />
 
-        {/* SECTION 02 — LIGHT COMPANY / POSITIONING */}
+        {/* SECTION 02 ,  LIGHT COMPANY / POSITIONING */}
         <CompanyPositioning />
 
-        {/* SECTION 03 — LIGHT CAPABILITIES */}
+        {/* SECTION 03 ,  LIGHT CAPABILITIES */}
         <Capabilities />
 
-        {/* SECTION 04 — LIGHT PRODUCTS OVERVIEW (THE COSMOS PLATFORM) */}
+        {/* SECTION 04 ,  LIGHT PRODUCTS OVERVIEW (THE COSMOS PLATFORM) */}
         <ProductsOverview onRequestDemo={onRequestDemo} />
 
-        {/* SECTION 05 — LIGHT INDUSTRIES / USE CASES */}
+        {/* SECTION 05 ,  LIGHT INDUSTRIES / USE CASES */}
         <IndustriesSection />
 
-        {/* SECTION 06 — DARK TECHNOLOGY / DIFFERENTIATION */}
+        {/* SECTION 06 ,  DARK TECHNOLOGY / DIFFERENTIATION */}
         <DifferentiationSection />
 
-        {/* SECTION 07 — LIGHT HOW TRINITY APPROACHES AI */}
+        {/* SECTION 07 ,  LIGHT HOW TRINITY APPROACHES AI */}
         <ApproachSection />
 
-        {/* SECTION 08 — LIGHT TRUST & VERIFICATION */}
+        {/* SECTION 08 ,  LIGHT TRUST & VERIFICATION */}
         <TrustSection />
 
-        {/* SECTION 09 — DARK FINAL CTA */}
+        {/* SECTION 09 ,  DARK FINAL CTA */}
         <FinalCTA onRequestDemo={onRequestDemo} onNavigate={onNavigate} />
       </main>
 
