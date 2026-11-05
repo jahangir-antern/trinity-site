@@ -4,6 +4,7 @@ import chandraMouliImg from '../assets/ChandraMouli-1.png';
 import anishImg from '../assets/Anish-1.png';
 import shivajiImg from '../assets/Shivaji-1.png';
 import sharoonImg from '../assets/Sharoon-1.png';
+import charlieImg from '../assets/charile-1 1.png';
 
 export const leadershipTeam = [
   {
@@ -88,6 +89,20 @@ export const leadershipTeam = [
     highlight: 'Issued AI Patents & High-Consequence Gated Decision Systems',
     bio: 'Sharoon Saxena is a senior AI architect specializing in deploying AI systems for high-consequence, heavily regulated environments. His work has transformed legal research, criminal background verification, and financial reconciliation—turning manual workflows into rapid insight pipelines, accelerating record resolution for high-risk safety assessments, and strengthening transaction monitoring for large-scale breach events. He holds several issued patents defining new standards for data quality and automated decision-making.',
     skills: ['Legal AI Models', 'Patent Author', 'Gated Pipelines', 'High-Consequence Systems']
+  },
+  {
+    id: 'charlie-lowe',
+    name: 'Charlie Lowe',
+    role: 'Channel Sales Head',
+    categoryBadge: 'Channel Sales Head',
+    image: charlieImg,
+    imagePosition: 'center 15%',
+    imageScale: 1.0,
+    transformOrigin: 'center 15%',
+    experience: '37+ Years',
+    highlight: '37+ Years in Claims Management & Property & Casualty Insurance',
+    bio: 'Charlie Lowe has been in the insurance industry for over 37 years with 30 of those years serving in a claims management capacity. He has held various roles throughout his career which has given him a complete understanding and unique perspective concerning both the insurance industry and the property and casualty insurance marketplace. He has built claim organizations from the ground up which included Daily Claims Examination, Field Adjusting, Litigation/Casualty Claims Examination, Catastrophe Response as well as Special Investigative and Fraud Prevention teams. He has implemented numerous Processes, Best Practices, Training, Quality Assurance Programs and Technology Platforms in support of organizational strategic objectives.',
+    skills: ['Channel Sales', 'Claims Management', 'P&C Insurance', 'Litigation & SIU']
   }
 ];
 
