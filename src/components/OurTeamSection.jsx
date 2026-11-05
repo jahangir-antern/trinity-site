@@ -199,7 +199,7 @@ export default function OurTeamSection({ onRequestDemo }) {
             {leadershipTeam.slice(2, 5).map((member) => renderMemberCard(member))}
           </div>
 
-          {/* Row 3: Architecture & Channel Sales Leadership (Sharoon Saxena & Charlie Lowe) */}
+          {/* Row 3: Architecture & Channel Strategy Leadership (Sharoon Saxena & Charlie Lowe) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
             {leadershipTeam.slice(5, 7).map((member) => renderMemberCard(member))}
           </div>

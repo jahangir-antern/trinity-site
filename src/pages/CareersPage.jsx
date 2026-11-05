@@ -79,7 +79,7 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const mailtoApplicationUrl = `mailto:jahangirxl@gmail.com?subject=${encodeURIComponent(
+  const mailtoApplicationUrl = `mailto:contactus@trinityaiboston.com?subject=${encodeURIComponent(
     `[Job Application] ${activeJobModal?.title || 'Open Role'} - ${formData.name || 'Candidate'}`
   )}&body=${encodeURIComponent(
     `TRINITY AI BOSTON - ROLE APPLICATION DOSSIER\n` +
@@ -92,7 +92,7 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
     `LinkedIn / Portfolio: ${formData.linkedin || 'Not provided'}\n` +
     `Cover Note / Fit:\n${formData.coverNote || 'N/A'}\n\n` +
     `Sent Date: ${new Date().toLocaleString()}\n` +
-    `Recipient: jahangirxl@gmail.com`
+    `Recipient: contactus@trinityaiboston.com`
   )}`;
 
   const handleSubmitApplication = async (e) => {
@@ -480,7 +480,7 @@ export default function CareersPage({ onNavigate, onRequestDemo }) {
                       Application Submitted!
                     </h4>
                     <p className="text-sm text-emerald-800 max-w-md mx-auto leading-relaxed">
-                      Thank you for applying to Trinity AI Boston for the <strong>{activeJobModal.title}</strong> role. Your application has been routed directly to <strong>jahangirxl@gmail.com</strong>.
+                      Thank you for applying to Trinity AI Boston for the <strong>{activeJobModal.title}</strong> role. Your application has been routed directly to <strong>contactus@trinityaiboston.com</strong>.
                     </p>
                     <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
                       <a

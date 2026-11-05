@@ -26,7 +26,7 @@ export default function DemoModal({ isOpen, onClose, preselectedProduct = "The C
 
   if (!isOpen) return null;
 
-  const mailtoUrl = `mailto:jahangirxl@gmail.com?subject=${encodeURIComponent(
+  const mailtoUrl = `mailto:contactus@trinityaiboston.com?subject=${encodeURIComponent(
     `[Executive Demo Request] ${formData.product || 'The Cosmos Platform'} - ${formData.fullName || 'Counsel'}`
   )}&body=${encodeURIComponent(
     `TRINITY AI BOSTON - EXECUTIVE PRODUCT DEMO REQUEST\n` +
@@ -38,7 +38,7 @@ export default function DemoModal({ isOpen, onClose, preselectedProduct = "The C
     `Platform of Interest: ${formData.product}\n` +
     `Use Case Overview: ${formData.useCase || 'N/A'}\n\n` +
     `Submission Date: ${new Date().toLocaleString()}\n` +
-    `Target Recipient: jahangirxl@gmail.com`
+    `Target Recipient: contactus@trinityaiboston.com`
   )}`;
 
   const handleSubmit = async (e) => {
@@ -126,7 +126,7 @@ export default function DemoModal({ isOpen, onClose, preselectedProduct = "The C
                   <span>Confidentiality & Direct Routing</span>
                 </div>
                 <p>
-                  Your inquiry has been logged and forwarded directly to <strong>jahangirxl@gmail.com</strong>.
+                  Your inquiry has been logged and forwarded directly to <strong>contactus@trinityaiboston.com</strong>.
                 </p>
                 <div className="pt-2">
                   <a

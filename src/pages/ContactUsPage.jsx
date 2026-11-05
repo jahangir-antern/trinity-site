@@ -40,7 +40,7 @@ export default function ContactUsPage({ onNavigate, onRequestDemo }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const mailtoUrl = `mailto:jahangirxl@gmail.com?subject=${encodeURIComponent(
+  const mailtoUrl = `mailto:contactus@trinityaiboston.com?subject=${encodeURIComponent(
     `[Trinity AI Inquiry] ${formData.inquiryType || 'General'} - ${formData.fullName || 'Counsel'}`
   )}&body=${encodeURIComponent(
     `TRINITY AI BOSTON - DIRECT BRIEFING INQUIRY\n` +
@@ -52,7 +52,7 @@ export default function ContactUsPage({ onNavigate, onRequestDemo }) {
     `Inquiry Scope: ${formData.inquiryType}\n` +
     `Message Context:\n${formData.message}\n\n` +
     `Sent Date: ${new Date().toLocaleString()}\n` +
-    `Recipient: jahangirxl@gmail.com`
+    `Recipient: contactus@trinityaiboston.com`
   )}`;
 
   const handleSubmit = async (e) => {
@@ -203,7 +203,7 @@ export default function ContactUsPage({ onNavigate, onRequestDemo }) {
                       Inquiry Received
                     </h3>
                     <p className="text-sm text-emerald-900 max-w-md mx-auto leading-relaxed">
-                      Thank you, <strong>{formData.fullName || 'Counsel'}</strong>. Your inquiry has been routed directly to <strong>jahangirxl@gmail.com</strong>. A member of our executive team will review your dossier and follow up within 4 business hours.
+                      Thank you, <strong>{formData.fullName || 'Counsel'}</strong>. Your inquiry has been routed directly to <strong>contactus@trinityaiboston.com</strong>. A member of our executive team will review your dossier and follow up within 4 business hours.
                     </p>
                     <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
                       <a
@@ -384,8 +384,8 @@ export default function ContactUsPage({ onNavigate, onRequestDemo }) {
                     </div>
                     <div className="flex items-center gap-2.5 pt-1">
                       <Mail className="w-4 h-4 text-slate-400 shrink-0" />
-                      <a href="mailto:jahangirxl@gmail.com" className="text-trinity-blue hover:underline">
-                        jahangirxl@gmail.com
+                      <a href="mailto:contactus@trinityaiboston.com" className="text-trinity-blue hover:underline">
+                        contactus@trinityaiboston.com
                       </a>
                     </div>
                   </div>
@@ -424,8 +424,8 @@ export default function ContactUsPage({ onNavigate, onRequestDemo }) {
                     </div>
                     <div className="flex items-center gap-2.5 pt-1">
                       <Mail className="w-4 h-4 text-slate-400 shrink-0" />
-                      <a href="mailto:jahangirxl@gmail.com" className="text-trinity-deepGold hover:underline">
-                        jahangirxl@gmail.com
+                      <a href="mailto:contactus@trinityaiboston.com" className="text-trinity-deepGold hover:underline">
+                        contactus@trinityaiboston.com
                       </a>
                     </div>
                   </div>
@@ -444,20 +444,20 @@ export default function ContactUsPage({ onNavigate, onRequestDemo }) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs">
                     <div>
                       <span className="text-slate-500 block">General Enquiries:</span>
-                      <a href="mailto:jahangirxl@gmail.com" className="font-semibold text-trinity-ink hover:text-trinity-blue">
-                        jahangirxl@gmail.com
+                      <a href="mailto:contactus@trinityaiboston.com" className="font-semibold text-trinity-ink hover:text-trinity-blue">
+                        contactus@trinityaiboston.com
                       </a>
                     </div>
                     <div>
                       <span className="text-slate-500 block">Carrier Partnerships:</span>
-                      <a href="mailto:jahangirxl@gmail.com" className="font-semibold text-trinity-ink hover:text-trinity-blue">
-                        jahangirxl@gmail.com
+                      <a href="mailto:contactus@trinityaiboston.com" className="font-semibold text-trinity-ink hover:text-trinity-blue">
+                        contactus@trinityaiboston.com
                       </a>
                     </div>
                     <div>
                       <span className="text-slate-500 block">Media & Press:</span>
-                      <a href="mailto:jahangirxl@gmail.com" className="font-semibold text-trinity-ink hover:text-trinity-blue">
-                        jahangirxl@gmail.com
+                      <a href="mailto:contactus@trinityaiboston.com" className="font-semibold text-trinity-ink hover:text-trinity-blue">
+                        contactus@trinityaiboston.com
                       </a>
                     </div>
                     <div>

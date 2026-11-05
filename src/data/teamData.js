@@ -93,8 +93,8 @@ export const leadershipTeam = [
   {
     id: 'charlie-lowe',
     name: 'Charlie Lowe',
-    role: 'Channel Sales Head',
-    categoryBadge: 'Channel Sales Head',
+    role: 'VP – Channel Strategy & Business Development',
+    categoryBadge: 'VP – Channel Strategy & BD',
     image: charlieImg,
     imagePosition: 'center 15%',
     imageScale: 1.0,
@@ -102,7 +102,7 @@ export const leadershipTeam = [
     experience: '37+ Years',
     highlight: '37+ Years in Claims Management & Property & Casualty Insurance',
     bio: 'Charlie Lowe has been in the insurance industry for over 37 years with 30 of those years serving in a claims management capacity. He has held various roles throughout his career which has given him a complete understanding and unique perspective concerning both the insurance industry and the property and casualty insurance marketplace. He has built claim organizations from the ground up which included Daily Claims Examination, Field Adjusting, Litigation/Casualty Claims Examination, Catastrophe Response as well as Special Investigative and Fraud Prevention teams. He has implemented numerous Processes, Best Practices, Training, Quality Assurance Programs and Technology Platforms in support of organizational strategic objectives.',
-    skills: ['Channel Sales', 'Claims Management', 'P&C Insurance', 'Litigation & SIU']
+    skills: ['Channel Strategy', 'Business Development', 'Claims Management', 'P&C Insurance']
   }
 ];
 

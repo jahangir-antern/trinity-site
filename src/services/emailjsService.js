@@ -9,12 +9,12 @@ export const EMAILJS_CONFIG = {
   serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_imjuuv5',
   templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_8pkej9k',
   publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'cDXudXLBsOyHsK_bZ',
-  recipientEmail: 'jahangirxl@gmail.com'
+  recipientEmail: 'contactus@trinityaiboston.com'
 };
 
 /**
  * Unified EmailJS submission dispatcher for all site forms.
- * Sends directly to jahangirxl@gmail.com using EmailJS with multi-layer fallback.
+ * Sends directly to contactus@trinityaiboston.com using EmailJS with multi-layer fallback.
  */
 export async function sendFormViaEmailJS(formType, data) {
   const recipient = EMAILJS_CONFIG.recipientEmail;
@@ -81,13 +81,13 @@ export async function sendFormViaEmailJS(formType, data) {
     }
   } else {
     console.info(
-      '[EmailJS Plugin] Running with default routing to jahangirxl@gmail.com. ' +
+      '[EmailJS Plugin] Running with default routing to contactus@trinityaiboston.com. ' +
       'To connect your direct EmailJS dashboard account, set VITE_EMAILJS_SERVICE_ID, ' +
       'VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY in your .env file.'
     );
   }
 
-  // 2. High-reliability serverless dispatch fallback to ensure jahangirxl@gmail.com always receives the message
+  // 2. High-reliability serverless dispatch fallback to ensure contactus@trinityaiboston.com always receives the message
   if (!emailjsDispatched) {
     try {
       await fetch(`https://shipmyform.com/to/${recipient}`, {
